@@ -1,0 +1,53 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageHeader from "@components/PageHeader.astro";
+import Button from "@components/Button.astro";
+import WhatsAppIcon from "@icons/WhatsAppIcon.astro";
+import InstagramIcon from "@icons/InstagramIcon.astro";
+import FacebookIcon from "@icons/FacebookIcon.astro";
+import MapPinIcon from "@icons/MapPinIcon.astro";
+import { contacto, linkWhatsApp } from "@data/contacto";
+---
+
+<Layout
+  title="Contacto | Nutrióloga Yanely García"
+  description="Agenda tu consulta por WhatsApp, o escríbeme por Instagram y Facebook."
+>
+  <PageHeader
+    eyebrow="Hablemos"
+    titulo="Contacto"
+    descripcion="La forma más rápida de agendar tu cita es por WhatsApp."
+  />
+
+  <section class="px-4 py-16">
+    <div class="mx-auto grid max-w-4xl gap-10 md:grid-cols-2">
+      <div class="flex flex-col gap-4">
+        <Button href={linkWhatsApp()} variant="love" target="_blank" class="justify-start">
+          <WhatsAppIcon class="h-5 w-5" /> Escríbeme por WhatsApp
+        </Button>
+        <Button href={contacto.instagram} variant="outline" target="_blank" class="justify-start">
+          <InstagramIcon class="h-5 w-5" /> Síguenos en Instagram
+        </Button>
+        <Button href={contacto.facebook} variant="outline" target="_blank" class="justify-start">
+          <FacebookIcon class="h-5 w-5" /> Síguenos en Facebook
+        </Button>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-xl font-semibold text-ink">Ubicaciones</h2>
+        <ul class="mt-4 space-y-3">
+          {
+            contacto.ubicaciones.map((u) => (
+              <li class="flex items-start gap-3 font-body text-ink/80">
+                <MapPinIcon class="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <span>
+                  <strong class="text-ink">{u.modalidad}:</strong> {u.lugar}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

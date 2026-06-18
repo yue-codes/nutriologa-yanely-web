@@ -1,0 +1,28 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageHeader from "@components/PageHeader.astro";
+import ServiceCategoryCard from "@components/ServiceCategoryCard.astro";
+import Button from "@components/Button.astro";
+import { categoriasServicios } from "@data/servicios";
+import { linkWhatsApp } from "@data/contacto";
+---
+
+<Layout
+  title="Servicios | Nutrióloga Yanely García"
+  description="Consulta nutricional para resistencia a la insulina, diabetes, SOP, hígado graso, hipertensión, gastritis, ERGE, cambio de hábitos y más."
+>
+  <PageHeader
+    eyebrow="Cómo te acompaño"
+    titulo="Servicios"
+    descripcion="Cada plan se adapta a tu condición, tus hábitos y tu vida — presencial en Oaxaca o en línea desde cualquier parte del mundo."
+  />
+
+  <section class="px-4 py-16">
+    <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
+      {categoriasServicios.map((categoria) => <ServiceCategoryCard categoria={categoria} />)}
+    </div>
+    <div class="mt-12 text-center">
+      <Button href={linkWhatsApp()} variant="love" target="_blank">Agenda tu cita</Button>
+    </div>
+  </section>
+</Layout>

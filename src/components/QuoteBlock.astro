@@ -1,0 +1,15 @@
+---
+/**
+ * Bloque de frase destacada, usado en el Hero de Inicio y en "Mi filosofía"
+ * dentro de Sobre mí. Usa la fuente Caveat — por diseño, solo aquí y nunca
+ * en texto corrido (es difícil de leer en párrafos largos).
+ */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<p class:list={["font-accent text-3xl text-love md:text-4xl", className]}>
+  <slot />
+</p>

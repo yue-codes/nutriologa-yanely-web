@@ -1,1 +1,86 @@
 @import "tailwindcss";
+
+/* Fraunces (variable, solo eje de peso) — usada en títulos */
+@import "@fontsource-variable/fraunces/wght.css";
+
+/* Nunito Sans — usada en texto de cuerpo */
+@import "@fontsource/nunito-sans/400.css";
+@import "@fontsource/nunito-sans/600.css";
+@import "@fontsource/nunito-sans/700.css";
+
+/* Caveat — solo para frases/citas destacadas, nunca en texto corrido */
+@import "@fontsource/caveat/600.css";
+
+/**
+ * Sistema de diseño del sitio.
+ * Para cambiar la paleta de colores o tipografía de TODO el sitio,
+ * solo edita los valores aquí abajo — no hace falta tocar componentes.
+ */
+@theme {
+  /* Tipografía */
+  --font-heading: "Fraunces Variable", serif;
+  --font-body: "Nunito Sans", sans-serif;
+  --font-accent: "Caveat", cursive;
+
+  /* Paleta de marca (inspirada en el logo: cerebro amarillo, mazorca
+     café, hoja verde, corazón rojo/rosa) */
+  --color-primary: #5b8c3e; /* verde hoja — botones y acentos principales */
+  --color-primary-dark: #43692c; /* hover/estados activos del primario */
+  --color-secondary: #e8a93b; /* amarillo mostaza — fondos cálidos y destacados */
+  --color-accent: #b5602f; /* terracota/café — detalles y bordes */
+  --color-love: #e0476b; /* rojo-rosa — CTA principal y frases motivacionales */
+  --color-cream: #fbf3e7; /* fondo cálido del sitio */
+  --color-ink: #3b2a20; /* texto principal (café oscuro, no negro puro) */
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/**
+ * Estilos para el contenido renderizado de los posts de blog (Markdown).
+ * Se aplican con la clase "blog-content" — evita depender de un plugin
+ * de tipografía externo para algo tan acotado.
+ */
+.blog-content :where(h2, h3) {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.blog-content :where(h2) {
+  font-size: 1.5rem;
+}
+.blog-content :where(h3) {
+  font-size: 1.25rem;
+}
+.blog-content :where(p) {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.blog-content :where(ul, ol) {
+  margin: 1rem 0 1rem 1.25rem;
+}
+.blog-content :where(ul) {
+  list-style: disc;
+}
+.blog-content :where(ol) {
+  list-style: decimal;
+}
+.blog-content :where(li) {
+  margin-bottom: 0.5rem;
+}
+.blog-content :where(blockquote) {
+  margin: 1.5rem 0;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+.blog-content :where(a) {
+  color: var(--color-primary);
+  text-decoration: underline;
+}

@@ -1,0 +1,23 @@
+---
+/**
+ * Encabezado de sección reutilizable: texto pequeño ("eyebrow") + título grande.
+ * Mantiene la tipografía de títulos (Fraunces) consistente en todo el sitio.
+ */
+interface Props {
+  eyebrow?: string;
+  titulo: string;
+  centrado?: boolean;
+  class?: string;
+}
+
+const { eyebrow, titulo, centrado = false, class: className } = Astro.props;
+---
+
+<div class:list={["max-w-2xl", centrado && "mx-auto text-center", className]}>
+  {
+    eyebrow && (
+      <p class="mb-2 font-body text-sm font-bold tracking-wide text-accent uppercase">{eyebrow}</p>
+    )
+  }
+  <h2 class="font-heading text-3xl font-semibold text-ink md:text-4xl">{titulo}</h2>
+</div>

@@ -1,0 +1,34 @@
+---
+/**
+ * Botón/enlace reutilizable con 3 variantes de color.
+ * Úsalo en vez de escribir <a class="..."> a mano, así todos los botones
+ * del sitio cambian de estilo en un solo lugar si hace falta.
+ */
+interface Props {
+  href: string;
+  variant?: "primary" | "love" | "outline";
+  class?: string;
+  target?: "_blank" | "_self";
+}
+
+const { href, variant = "primary", class: className, target } = Astro.props;
+
+const variantes: Record<string, string> = {
+  primary: "bg-primary text-cream hover:bg-primary-dark",
+  love: "bg-love text-cream hover:opacity-90",
+  outline: "border-2 border-primary text-primary hover:bg-primary hover:text-cream"
+};
+---
+
+<a
+  href={href}
+  target={target}
+  rel={target === "_blank" ? "noopener noreferrer" : undefined}
+  class:list={[
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-body font-semibold transition-colors",
+    variantes[variant],
+    className
+  ]}
+>
+  <slot />
+</a>

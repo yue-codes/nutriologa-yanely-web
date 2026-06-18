@@ -1,5 +1,18 @@
 ---
 import "../styles/global.css";
+import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer.astro";
+import WhatsAppButton from "@components/WhatsAppButton.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Nutrióloga Yanely García | Tu aliada para una vida más saludable",
+  description = "Consultas de nutrición presenciales en Ocotlán de Morelos y Santa Lucía del Camino, Oaxaca, y en línea para todo el mundo. Amor, cariño y respeto a la nutrición."
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -7,12 +20,18 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
 
-    <title>Nutrióloga Yanely | Tu Aliada para una vida más saludable</title>
+    <title>{title}</title>
   </head>
-  <body>
-    <slot />
+  <body class="flex min-h-screen flex-col font-body">
+    <Navbar />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppButton />
   </body>
 </html>

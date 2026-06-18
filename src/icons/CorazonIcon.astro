@@ -1,0 +1,26 @@
+---
+/**
+ * Ícono decorativo "corazón" — uno de los 4 símbolos del logo.
+ * Dibujo simplificado propio, reemplazable cuando llegue el logo final.
+ */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={className}
+  aria-hidden="true"
+>
+  <path
+    d="M12 21s-7.5-4.8-10-9.3C.5 8.5 2 4.5 6 4c2.2-.3 4 1 6 3 2-2 3.8-3.3 6-3 4 .5 5.5 4.5 4 7.7-2.5 4.5-10 9.3-10 9.3z"
+  />
+</svg>

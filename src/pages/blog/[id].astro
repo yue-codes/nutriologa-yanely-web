@@ -1,0 +1,43 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageHeader from "@components/PageHeader.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fechaFormateada = post.data.fecha.toLocaleDateString("es-MX", {
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+});
+---
+
+<Layout title={`${post.data.titulo} | Blog Nutrióloga Yanely García`} description={post.data.resumen}>
+  <PageHeader eyebrow={post.data.categoria} titulo={post.data.titulo} />
+
+  <article class="mx-auto max-w-3xl px-4 py-16">
+    <img
+      src={post.data.imagen}
+      alt={post.data.imagenAlt}
+      width="800"
+      height="500"
+      class="w-full rounded-3xl object-cover"
+    />
+    <p class="mt-4 font-body text-sm text-ink/60">{fechaFormateada}</p>
+    <div class="blog-content mt-6 font-body text-ink/90">
+      <Content />
+    </div>
+    <a href="/blog" class="mt-10 inline-block font-body font-semibold text-primary hover:underline">
+      ← Volver al blog
+    </a>
+  </article>
+</Layout>
