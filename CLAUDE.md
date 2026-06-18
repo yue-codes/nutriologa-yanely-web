@@ -24,7 +24,8 @@ There is no lint or test script configured. Formatting is via Prettier (`.pretti
 
 ## Architecture
 
-- **Astro 6**, with **Preact** wired in (`@astrojs/preact`) for any interactive components (none needed yet — the mobile nav uses a pure-CSS checkbox toggle, no client JS), and **Tailwind CSS v4** via the Vite plugin in `astro.config.mjs` (CSS-first config, no `tailwind.config.js`).
+- **Astro 6**, with **Preact** wired in (`@astrojs/preact`) for interactive components, and **Tailwind CSS v4** via the Vite plugin in `astro.config.mjs` (CSS-first config, no `tailwind.config.js`).
+- Two Preact islands exist so far, both in `home/` and hydrated with `client:load`/`client:visible`: `MobileNav.tsx` (full-screen mobile menu, replacing an earlier pure-CSS checkbox-hack toggle) and `TestimoniosCarousel.tsx` (swipeable/paged testimonials carousel). Both duplicate small bits of markup/styling from their Astro counterparts (e.g. `Button`) instead of importing them, because Astro components can't be used directly inside framework components — only passed in as pre-rendered children. Default to plain Astro + CSS first; reach for a Preact island only when real client-side state or animation is needed, following this pattern.
 - `src/layouts/Layout.astro` renders `<Navbar />` + `<slot />` + `<Footer />` + `<WhatsAppButton />` (floating CTA) around every page — pages should never render their own nav/footer.
 - `src/components/` is grouped by role, no loose files at its root:
   - `layout/` — global chrome mounted from `Layout.astro` (`Navbar`, `Footer`, `Logo`, `WhatsAppButton`).
@@ -41,6 +42,8 @@ There is no lint or test script configured. Formatting is via Prettier (`.pretti
 ### Design tokens
 
 All colors and fonts are defined once as CSS variables in `src/styles/global.css` inside an `@theme` block (`--color-primary`, `--color-secondary`, `--color-accent`, `--color-love`, `--color-cream`, `--color-ink`; `--font-heading`, `--font-body`, `--font-accent`). Tailwind auto-generates utilities from these (`bg-primary`, `text-love`, `font-heading`, etc.) — never hardcode a hex color or font name in a component, reference the token utility instead. Fonts (Fraunces, Nunito Sans, Caveat) are loaded from Fontsource packages imported at the top of `global.css`.
+
+`--color-title` is a separate green token (currently the same hex as `--color-primary`) used only for section heading titles (`ui/SectionHeading.astro`). It's intentionally decoupled from `--color-primary` — which also drives buttons and icons — so the title color can be tuned later without affecting buttons/icons. Follow this pattern (a dedicated token) rather than reusing `--color-primary`/`--color-accent` directly if a future text color needs to evolve independently of the UI elements that share those tokens. Note `--color-accent` doubles as the maíz icon's color (see `src/icons/`), so changing it affects the logo's 4-symbol color coding, not just text.
 
 `.blog-content` (also in `global.css`) hand-styles rendered Markdown (headings, lists, blockquotes) for blog posts — there's no `@tailwindcss/typography` dependency, this was a deliberate choice to avoid pulling in a plugin for a small, contained need.
 

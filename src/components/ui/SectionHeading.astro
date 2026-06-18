@@ -16,12 +16,12 @@ const { eyebrow, titulo, centrado = false, class: className } = Astro.props;
 <div class:list={["max-w-2xl", centrado && "mx-auto text-center", className]}>
   {
     eyebrow && (
-      <p class="font-body text-accent mb-2 text-sm font-bold tracking-wide uppercase">
+      <p class="font-body text-ink mb-2 text-sm font-bold tracking-wide uppercase">
         {eyebrow}
       </p>
     )
   }
-  <h2 class="font-heading text-ink text-3xl font-semibold md:text-4xl">
+  <h2 class="font-heading text-title text-3xl font-semibold md:text-4xl">
     {titulo}
   </h2>
 </div>

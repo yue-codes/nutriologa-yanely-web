@@ -31,6 +31,10 @@
   --color-love: #e0476b; /* rojo-rosa — CTA principal y frases motivacionales */
   --color-cream: #fbf3e7; /* fondo cálido del sitio */
   --color-ink: #3b2a20; /* texto principal (café oscuro, no negro puro) */
+
+  /* Separado de --color-primary a propósito: este es el verde de texto
+     (títulos de sección), para poder ajustarlo sin afectar botones/íconos. */
+  --color-title: #5b8c3e;
 }
 
 body {

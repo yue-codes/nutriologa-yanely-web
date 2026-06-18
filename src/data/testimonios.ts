@@ -50,5 +50,23 @@ export const testimonios: Testimonio[] = [
     comentario:
       "Lo que más valoro es que se enfocó en mis hábitos y no solo en una báscula. Hoy me siento con más energía.",
     avatar: "/reviews/review2.webp"
+  },
+  {
+    nombre: "Renata G.",
+    comentario:
+      "Llevaba años lidiando con el síndrome de ovario poliquístico y nadie me había explicado cómo ayudaba la alimentación. Hoy mis ciclos y mi energía son otros.",
+    avatar: "/reviews/review3.webp"
+  },
+  {
+    nombre: "Roberto T.",
+    comentario:
+      "Mis análisis salieron con hígado graso y colesterol alto. Con los cambios que me propuso mejoré en unos meses, sin sentir que vivía a dieta.",
+    avatar: "/reviews/review4.webp"
+  },
+  {
+    nombre: "Paola V.",
+    comentario:
+      "Comía con miedo por la gastritis. Aprendí qué puedo disfrutar y cómo armar mis platos sin que se me complique el estómago.",
+    avatar: "/reviews/review1.webp"
   }
 ];

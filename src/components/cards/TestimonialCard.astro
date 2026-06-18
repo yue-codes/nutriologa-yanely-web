@@ -3,24 +3,44 @@ import type { Testimonio } from "@data/testimonios";
 
 interface Props {
   testimonio: Testimonio;
+  accent?: "primary" | "secondary" | "accent" | "love";
 }
-const { testimonio } = Astro.props;
+const { testimonio, accent = "love" } = Astro.props;
+
+const colorTexto: Record<string, string> = {
+  primary: "text-primary",
+  secondary: "text-secondary",
+  accent: "text-accent",
+  love: "text-love",
+};
+const colorAnillo: Record<string, string> = {
+  primary: "ring-primary/40",
+  secondary: "ring-secondary/50",
+  accent: "ring-accent/40",
+  love: "ring-love/40",
+};
 ---
 
 <figure
-  class="ring-ink/5 flex h-full flex-col rounded-3xl bg-white/70 p-6 shadow-sm ring-1"
+  class="relative flex h-full min-h-80 flex-col justify-center overflow-hidden rounded-3xl bg-white p-8 shadow-md"
 >
-  <blockquote class="font-body text-ink/90">
+  <span
+    aria-hidden="true"
+    class={`font-heading absolute -top-6 right-5 text-8xl leading-none opacity-[0.08] ${colorTexto[accent]}`}
+  >
+    ”
+  </span>
+  <blockquote class="font-body text-ink/90 relative z-10 text-lg">
     “{testimonio.comentario}”
   </blockquote>
-  <figcaption class="mt-4 flex items-center gap-3">
+  <figcaption class="relative z-10 mt-6 flex items-center gap-3">
     <img
       src={testimonio.avatar}
       alt={`Foto de ${testimonio.nombre}`}
-      width="44"
-      height="44"
+      width="52"
+      height="52"
       loading="lazy"
-      class="h-11 w-11 rounded-full object-cover"
+      class={`h-14 w-14 rounded-full object-cover ring-2 ${colorAnillo[accent]}`}
     />
     <span class="font-body text-ink font-semibold">{testimonio.nombre}</span>
   </figcaption>

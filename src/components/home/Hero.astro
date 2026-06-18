@@ -1,28 +1,40 @@
 ---
 import Button from "@components/ui/Button.astro";
 import QuoteBlock from "@components/ui/QuoteBlock.astro";
+import CerebroIcon from "@icons/CerebroIcon.astro";
+import CorazonIcon from "@icons/CorazonIcon.astro";
+import HojaIcon from "@icons/HojaIcon.astro";
+import MaizIcon from "@icons/MaizIcon.astro";
 import { linkWhatsApp } from "@data/contacto";
 ---
 
 <section
-  class="flex min-h-[calc(100dvh-4rem)] items-center overflow-hidden px-4 py-10"
+  class="relative flex min-h-[calc(100dvh-4rem)] items-center overflow-hidden px-4 py-10"
 >
+  <HojaIcon
+    class="text-primary pointer-events-none absolute -top-6 left-[8%] -z-10 size-40 -rotate-12 opacity-[0.07] md:size-56"
+  />
+  <MaizIcon
+    class="text-accent pointer-events-none absolute -right-10 bottom-0 -z-10 size-48 rotate-12 opacity-[0.08] md:size-64"
+  />
+  <CerebroIcon
+    class="text-secondary pointer-events-none absolute top-[12%] right-[10%] -z-10 size-24 rotate-6 opacity-[0.08] md:size-32"
+  />
+  <CorazonIcon
+    class="text-love pointer-events-none absolute bottom-[8%] left-[18%] -z-10 size-20 -rotate-6 opacity-[0.07] md:size-28"
+  />
+
   <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
     <div>
-      <p
-        class="font-body text-accent text-sm font-bold tracking-wide uppercase"
-      >
-        Consultas presenciales en Oaxaca y en línea para todo el mundo
-      </p>
-      <h1 class="font-heading text-ink mt-3 text-4xl font-semibold md:text-5xl">
+      <h1 class="font-heading text-ink text-4xl font-semibold md:text-5xl">
         Tu aliada para una vida más saludable
       </h1>
       <QuoteBlock class="mt-6"
         >Amor, cariño y respeto a la nutrición.</QuoteBlock
       >
-      <p class="font-body text-ink/80 mt-4">
-        Planes de alimentación que se adaptan a ti, a tus hábitos y a tu
-        economía — no al revés.
+      <p class="font-body text-ink/90 mt-4 font-semibold">
+        Planes de alimentación que se adaptan a ti, a tus hábitos, tus gustos y
+        tu economía — no al revés.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <Button href={linkWhatsApp()} variant="love" target="_blank"
@@ -46,6 +58,19 @@ import { linkWhatsApp } from "@data/contacto";
         height="480"
         class="relative w-full rounded-[3rem] object-contain"
       />
+
+      <div
+        class="bg-cream absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-2xl px-4 py-3 shadow-lg md:right-4 md:left-auto md:translate-x-0"
+      >
+        <p
+          class="font-heading text-primary text-sm leading-tight font-semibold"
+        >
+          Licenciada en Nutrición
+        </p>
+        <p class="font-body text-ink/70 mt-0.5 text-xs leading-tight">
+          Céd. Profesional 11856808
+        </p>
+      </div>
     </div>
   </div>
 </section>
