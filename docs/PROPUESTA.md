@@ -56,6 +56,7 @@ temporales que conviene reemplazar antes de publicarlo:
 - [ ] Número de WhatsApp real para agendar citas
 - [ ] Correo de contacto real
 - [ ] Testimonios reales de pacientes (los actuales son genéricos, de ejemplo)
+- [ ] Años de experiencia y número de pacientes atendidos reales (las cifras que aparecen en Inicio son de ejemplo)
 - [ ] Confirmar o reemplazar las fotos finales que quieras usar
 - [ ] Primeros artículos reales del blog (hay 7 de ejemplo para mostrar cómo se ve)
 

@@ -21,22 +21,34 @@ const iconos = {
 const { Icono, color } = iconos[categoria.icono];
 ---
 
-<article class="ring-ink/5 rounded-3xl bg-white/70 p-6 shadow-sm ring-1 md:p-8">
-  <Icono class={`h-10 w-10 ${color}`} />
-  <h3 class="font-heading text-ink mt-4 text-xl font-semibold">
-    {categoria.titulo}
-  </h3>
-  <p class="font-body text-ink/80 mt-2">{categoria.descripcion}</p>
-  <ul class="mt-4 space-y-2">
-    {
-      categoria.items.map((item) => (
-        <li class="font-body text-ink/90 flex items-start gap-2 text-sm">
-          <span
-            class={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color} bg-current`}
-          />
-          {item}
-        </li>
-      ))
-    }
-  </ul>
+<article
+  class="ring-ink/5 flex flex-col overflow-hidden rounded-3xl bg-white/70 shadow-sm ring-1"
+>
+  <img
+    src={categoria.imagen}
+    alt={categoria.imagenAlt}
+    width="640"
+    height="384"
+    loading="lazy"
+    class="h-48 w-full object-cover"
+  />
+  <div class="p-6 md:p-8">
+    <Icono class={`h-10 w-10 ${color}`} />
+    <h3 class="font-heading text-ink mt-4 text-xl font-semibold">
+      {categoria.titulo}
+    </h3>
+    <p class="font-body text-ink/80 mt-2">{categoria.descripcion}</p>
+    <ul class="mt-4 space-y-2">
+      {
+        categoria.items.map((item) => (
+          <li class="font-body text-ink/90 flex items-start gap-2 text-sm">
+            <span
+              class={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color} bg-current`}
+            />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </article>

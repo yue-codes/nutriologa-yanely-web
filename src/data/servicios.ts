@@ -13,6 +13,8 @@ export type CategoriaServicio = {
   titulo: string;
   descripcion: string;
   items: string[];
+  imagen: string;
+  imagenAlt: string;
 };
 
 export const categoriasServicios: CategoriaServicio[] = [
@@ -27,8 +29,11 @@ export const categoriasServicios: CategoriaServicio[] = [
       "Diabetes tipo 1, tipo 2 y gestacional",
       "Síndrome de ovario poliquístico (SOP)",
       "Síndrome metabólico",
-      "Dislipidemias (colesterol y triglicéridos altos)"
-    ]
+      "Dislipidemias (colesterol y triglicéridos altos)",
+    ],
+    imagen: "/servicios/metabolicohormonal.jpg",
+    imagenAlt:
+      "Mujer sosteniendo un manojo de hierbas frescas como albahaca y menta",
   },
   {
     id: "higado-corazon",
@@ -36,7 +41,10 @@ export const categoriasServicios: CategoriaServicio[] = [
     titulo: "Hígado y corazón",
     descripcion:
       "Planes enfocados en proteger tu hígado y tu sistema cardiovascular a través de la alimentación diaria.",
-    items: ["Esteatosis hepática (hígado graso)", "Hipertensión arterial"]
+    items: ["Esteatosis hepática (hígado graso)", "Hipertensión arterial"],
+    imagen: "/servicios/higadocorazon.jpg",
+    imagenAlt:
+      "Alimentos saludables para el corazón acomodados en forma de corazón: salmón, aguacate, arándanos y nueces",
   },
   {
     id: "sistema-digestivo",
@@ -44,7 +52,10 @@ export const categoriasServicios: CategoriaServicio[] = [
     titulo: "Sistema digestivo",
     descripcion:
       "Nutrición pensada para aliviar molestias digestivas y mejorar tu relación con la comida día a día.",
-    items: ["Pancreatitis", "Gastritis", "Reflujo gastroesofágico (ERGE)"]
+    items: ["Pancreatitis", "Gastritis", "Reflujo gastroesofágico (ERGE)"],
+    imagen: "/servicios/digestivo.jpg",
+    imagenAlt:
+      "Persona sosteniendo un tazón con tomates frescos de varios colores",
   },
   {
     id: "habitos-composicion",
@@ -52,6 +63,13 @@ export const categoriasServicios: CategoriaServicio[] = [
     titulo: "Hábitos y composición corporal",
     descripcion:
       "Para quienes buscan un cambio de hábitos real y sostenible, más allá de una dieta restrictiva.",
-    items: ["Entrenamiento nutricional", "Cambio de hábitos", "Recomposición corporal"]
-  }
+    items: [
+      "Entrenamiento nutricional",
+      "Cambio de hábitos",
+      "Recomposición corporal",
+    ],
+    imagen: "/servicios/habitos2.jpg",
+    imagenAlt:
+      "Batido de frutos rojos junto a mancuernas, símbolo de hábitos saludables y ejercicio",
+  },
 ];
