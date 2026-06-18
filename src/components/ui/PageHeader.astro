@@ -1,0 +1,27 @@
+---
+/** Encabezado de página simple, usado en Sobre mí, Servicios, Blog y Contacto. */
+interface Props {
+  eyebrow?: string;
+  titulo: string;
+  descripcion?: string;
+}
+const { eyebrow, titulo, descripcion } = Astro.props;
+---
+
+<header class="bg-secondary/20 px-4 py-16 text-center">
+  {
+    eyebrow && (
+      <p class="font-body text-accent text-sm font-bold tracking-wide uppercase">
+        {eyebrow}
+      </p>
+    )
+  }
+  <h1 class="font-heading text-ink mt-2 text-4xl font-semibold md:text-5xl">
+    {titulo}
+  </h1>
+  {
+    descripcion && (
+      <p class="font-body text-ink/80 mx-auto mt-4 max-w-2xl">{descripcion}</p>
+    )
+  }
+</header>

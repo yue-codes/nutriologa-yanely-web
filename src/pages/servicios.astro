@@ -1,8 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageHeader from "@components/PageHeader.astro";
-import ServiceCategoryCard from "@components/ServiceCategoryCard.astro";
-import Button from "@components/Button.astro";
+import PageHeader from "@components/ui/PageHeader.astro";
+import ServiceCategoryCard from "@components/cards/ServiceCategoryCard.astro";
+import Button from "@components/ui/Button.astro";
 import { categoriasServicios } from "@data/servicios";
 import { linkWhatsApp } from "@data/contacto";
 ---
@@ -19,10 +19,16 @@ import { linkWhatsApp } from "@data/contacto";
 
   <section class="px-4 py-16">
     <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
-      {categoriasServicios.map((categoria) => <ServiceCategoryCard categoria={categoria} />)}
+      {
+        categoriasServicios.map((categoria) => (
+          <ServiceCategoryCard categoria={categoria} />
+        ))
+      }
     </div>
     <div class="mt-12 text-center">
-      <Button href={linkWhatsApp()} variant="love" target="_blank">Agenda tu cita</Button>
+      <Button href={linkWhatsApp()} variant="love" target="_blank"
+        >Agenda tu cita</Button
+      >
     </div>
   </section>
 </Layout>

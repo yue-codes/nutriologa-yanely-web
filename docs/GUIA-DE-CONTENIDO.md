@@ -62,7 +62,7 @@ leen de aquí.
 ## Cambiar el logo o las fotos
 
 - **Logo**: cuando tengas el logo en alta calidad, reemplaza el contenido de
-  `src/components/Logo.astro` por una etiqueta `<img>` que apunte al archivo (colócalo en
+  `src/components/layout/Logo.astro` por una etiqueta `<img>` que apunte al archivo (colócalo en
   `public/`).
 - **Fotos**: sustituye los archivos en `public/` (`nutri.webp`, `nutri2.jpg`, `nutri3.jpg`) por
   las versiones finales manteniendo el mismo nombre, o actualiza la ruta en la página

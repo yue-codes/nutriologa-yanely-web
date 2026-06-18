@@ -15,21 +15,25 @@ const iconos = {
   cerebro: { Icono: CerebroIcon, color: "text-secondary" },
   maiz: { Icono: MaizIcon, color: "text-accent" },
   hoja: { Icono: HojaIcon, color: "text-primary" },
-  corazon: { Icono: CorazonIcon, color: "text-love" }
+  corazon: { Icono: CorazonIcon, color: "text-love" },
 } as const;
 
 const { Icono, color } = iconos[categoria.icono];
 ---
 
-<article class="rounded-3xl bg-white/70 p-6 shadow-sm ring-1 ring-ink/5 md:p-8">
+<article class="ring-ink/5 rounded-3xl bg-white/70 p-6 shadow-sm ring-1 md:p-8">
   <Icono class={`h-10 w-10 ${color}`} />
-  <h3 class="mt-4 font-heading text-xl font-semibold text-ink">{categoria.titulo}</h3>
-  <p class="mt-2 font-body text-ink/80">{categoria.descripcion}</p>
+  <h3 class="font-heading text-ink mt-4 text-xl font-semibold">
+    {categoria.titulo}
+  </h3>
+  <p class="font-body text-ink/80 mt-2">{categoria.descripcion}</p>
   <ul class="mt-4 space-y-2">
     {
       categoria.items.map((item) => (
-        <li class="flex items-start gap-2 font-body text-sm text-ink/90">
-          <span class={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color} bg-current`} />
+        <li class="font-body text-ink/90 flex items-start gap-2 text-sm">
+          <span
+            class={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color} bg-current`}
+          />
           {item}
         </li>
       ))

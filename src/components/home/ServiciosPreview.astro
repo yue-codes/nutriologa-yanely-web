@@ -1,0 +1,19 @@
+---
+import Section from "@components/ui/Section.astro";
+import Button from "@components/ui/Button.astro";
+import ServiceCategoryCard from "@components/cards/ServiceCategoryCard.astro";
+import { categoriasServicios } from "@data/servicios";
+---
+
+<Section tinted eyebrow="Cómo te acompaño" titulo="Servicios" centrado>
+  <div class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4">
+    {
+      categoriasServicios.map((categoria) => (
+        <ServiceCategoryCard categoria={categoria} />
+      ))
+    }
+  </div>
+  <div class="mt-10 text-center">
+    <Button href="/servicios" variant="primary">Ver todos los servicios</Button>
+  </div>
+</Section>

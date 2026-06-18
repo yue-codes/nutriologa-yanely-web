@@ -1,0 +1,19 @@
+---
+import Section from "@components/ui/Section.astro";
+import Button from "@components/ui/Button.astro";
+import BlogCard from "@components/cards/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const ultimosPosts = (await getCollection("blog"))
+  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
+  .slice(0, 3);
+---
+
+<Section tinted eyebrow="Para seguir aprendiendo" titulo="Del blog" centrado>
+  <div class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
+    {ultimosPosts.map((post) => <BlogCard entry={post} />)}
+  </div>
+  <div class="mt-10 text-center">
+    <Button href="/blog" variant="outline">Ver todo el blog</Button>
+  </div>
+</Section>

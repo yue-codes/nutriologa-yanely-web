@@ -35,7 +35,11 @@ tener que tocar el diseño cada vez que se actualiza un texto.
 
 ```
 src/
-├── components/        # Componentes reutilizables (Button, Navbar, Footer, Cards, etc.)
+├── components/
+│   ├── layout/         # Chrome global: Navbar, Footer, Logo, WhatsAppButton
+│   ├── ui/              # Bloques genéricos: Button, QuoteBlock, SectionHeading, Section, PageHeader
+│   ├── cards/           # Tarjetas de datos: BlogCard, ServiceCategoryCard, TestimonialCard
+│   └── home/            # Secciones exclusivas de Inicio (Hero, ServiciosPreview, etc.)
 ├── content/blog/       # Posts del blog (Markdown)
 ├── content.config.ts   # Esquema de la colección "blog"
 ├── data/                # Contenido editable: servicios.ts, testimonios.ts, contacto.ts

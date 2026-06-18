@@ -1,94 +1,16 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Button from "@components/Button.astro";
-import QuoteBlock from "@components/QuoteBlock.astro";
-import SectionHeading from "@components/SectionHeading.astro";
-import ServiceCategoryCard from "@components/ServiceCategoryCard.astro";
-import TestimonialCard from "@components/TestimonialCard.astro";
-import BlogCard from "@components/BlogCard.astro";
-import { categoriasServicios } from "@data/servicios";
-import { testimonios } from "@data/testimonios";
-import { linkWhatsApp } from "@data/contacto";
-import { getCollection } from "astro:content";
-
-// Los 3 posts más recientes del blog para la vista previa de Inicio.
-const ultimosPosts = (await getCollection("blog"))
-  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
-  .slice(0, 3);
+import Hero from "@components/home/Hero.astro";
+import ServiciosPreview from "@components/home/ServiciosPreview.astro";
+import TestimoniosPreview from "@components/home/TestimoniosPreview.astro";
+import BlogPreview from "@components/home/BlogPreview.astro";
+import CtaFinal from "@components/home/CtaFinal.astro";
 ---
 
 <Layout>
-  <!-- Hero -->
-  <section class="overflow-hidden px-4 pt-10 pb-20 md:pt-16">
-    <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
-      <div>
-        <p class="font-body text-sm font-bold tracking-wide text-accent uppercase">
-          Consultas presenciales en Oaxaca y en línea para todo el mundo
-        </p>
-        <h1 class="mt-3 font-heading text-4xl font-semibold text-ink md:text-5xl">
-          Tu aliada para una vida más saludable
-        </h1>
-        <QuoteBlock class="mt-6">Amor, cariño y respeto a la nutrición.</QuoteBlock>
-        <p class="mt-4 font-body text-ink/80">
-          Planes de alimentación que se adaptan a ti, a tus hábitos y a tu economía — no al revés.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <Button href={linkWhatsApp()} variant="love" target="_blank">Agenda tu cita</Button>
-          <Button href="/servicios" variant="outline">Conoce mis servicios</Button>
-        </div>
-      </div>
-
-      <div class="relative mx-auto max-w-sm">
-        <div class="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-[3rem] bg-secondary/40" aria-hidden="true">
-        </div>
-        <img
-          src="/nutri.webp"
-          alt="Yanely García, nutrióloga, sonriendo"
-          width="480"
-          height="480"
-          class="relative w-full rounded-[3rem] object-contain"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- Servicios -->
-  <section class="bg-white/40 px-4 py-16">
-    <SectionHeading eyebrow="Cómo te acompaño" titulo="Servicios" centrado />
-    <div class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4">
-      {categoriasServicios.map((categoria) => <ServiceCategoryCard categoria={categoria} />)}
-    </div>
-    <div class="mt-10 text-center">
-      <Button href="/servicios" variant="primary">Ver todos los servicios</Button>
-    </div>
-  </section>
-
-  <!-- Testimonios -->
-  <section class="px-4 py-16">
-    <SectionHeading eyebrow="Lo que dicen de mí" titulo="Testimonios" centrado />
-    <div class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {testimonios.slice(0, 3).map((testimonio) => <TestimonialCard testimonio={testimonio} />)}
-    </div>
-  </section>
-
-  <!-- Blog -->
-  <section class="bg-white/40 px-4 py-16">
-    <SectionHeading eyebrow="Para seguir aprendiendo" titulo="Del blog" centrado />
-    <div class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
-      {ultimosPosts.map((post) => <BlogCard entry={post} />)}
-    </div>
-    <div class="mt-10 text-center">
-      <Button href="/blog" variant="outline">Ver todo el blog</Button>
-    </div>
-  </section>
-
-  <!-- CTA final -->
-  <section class="px-4 py-16 text-center">
-    <h2 class="mx-auto max-w-2xl font-heading text-3xl font-semibold text-ink md:text-4xl">
-      ¿Lista para empezar tu cambio de hábitos?
-    </h2>
-    <div class="mt-6">
-      <Button href={linkWhatsApp()} variant="love" target="_blank">Agenda tu cita por WhatsApp</Button>
-    </div>
-  </section>
+  <Hero />
+  <ServiciosPreview />
+  <TestimoniosPreview />
+  <BlogPreview />
+  <CtaFinal />
 </Layout>

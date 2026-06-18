@@ -7,8 +7,12 @@ interface Props {
 const { testimonio } = Astro.props;
 ---
 
-<figure class="flex h-full flex-col rounded-3xl bg-white/70 p-6 shadow-sm ring-1 ring-ink/5">
-  <blockquote class="font-body text-ink/90">“{testimonio.comentario}”</blockquote>
+<figure
+  class="ring-ink/5 flex h-full flex-col rounded-3xl bg-white/70 p-6 shadow-sm ring-1"
+>
+  <blockquote class="font-body text-ink/90">
+    “{testimonio.comentario}”
+  </blockquote>
   <figcaption class="mt-4 flex items-center gap-3">
     <img
       src={testimonio.avatar}
@@ -18,6 +22,6 @@ const { testimonio } = Astro.props;
       loading="lazy"
       class="h-11 w-11 rounded-full object-cover"
     />
-    <span class="font-body font-semibold text-ink">{testimonio.nombre}</span>
+    <span class="font-body text-ink font-semibold">{testimonio.nombre}</span>
   </figcaption>
 </figure>

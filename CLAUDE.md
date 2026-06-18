@@ -26,6 +26,11 @@ There is no lint or test script configured. Formatting is via Prettier (`.pretti
 
 - **Astro 6**, with **Preact** wired in (`@astrojs/preact`) for any interactive components (none needed yet — the mobile nav uses a pure-CSS checkbox toggle, no client JS), and **Tailwind CSS v4** via the Vite plugin in `astro.config.mjs` (CSS-first config, no `tailwind.config.js`).
 - `src/layouts/Layout.astro` renders `<Navbar />` + `<slot />` + `<Footer />` + `<WhatsAppButton />` (floating CTA) around every page — pages should never render their own nav/footer.
+- `src/components/` is grouped by role, no loose files at its root:
+  - `layout/` — global chrome mounted from `Layout.astro` (`Navbar`, `Footer`, `Logo`, `WhatsAppButton`).
+  - `ui/` — generic reusable building blocks (`Button`, `QuoteBlock`, `SectionHeading`, `Section`, `PageHeader`).
+  - `cards/` — data-driven card components (`BlogCard`, `ServiceCategoryCard`, `TestimonialCard`).
+  - `home/` — single-use composition components for `index.astro` only (see "Pages" below).
 - Path aliases (`tsconfig.json`), use these instead of relative imports:
   - `@components/*` → `src/components/*`
   - `@layouts/*` → `src/layouts/*`
@@ -44,10 +49,10 @@ All colors and fonts are defined once as CSS variables in `src/styles/global.css
 - `src/data/servicios.ts`, `src/data/testimonios.ts`, `src/data/contacto.ts` are the single source of truth for those lists — pages and components read from them, never hardcode service/testimonial/contact text inline.
 - The blog is an Astro Content Collection: schema in `src/content.config.ts` (Astro 6's Content Layer API — `glob()` loader from `astro/loaders`, not the legacy `src/content/config.ts`), entries as Markdown files in `src/content/blog/`. `entry.id` (used for the `/blog/[id]` route) is the filename slug, derived automatically by the loader.
 - `src/icons/*.astro` is a small hand-drawn SVG icon set (brand icons mirroring the real logo's 4 symbols — cerebro/maíz/hoja/corazón — plus WhatsApp/Instagram/Facebook/Menu/Close/MapPin). No icon library dependency; add new icons the same way (inline SVG, `class` prop, `currentColor` strokes/fills).
-- `src/components/Logo.astro` recreates the real logo's composition (icon row + cursive name + "Nutrióloga") as a placeholder; swap it for an `<img>` once the client provides a high-res logo, per the comment in that file.
+- `src/components/layout/Logo.astro` recreates the real logo's composition (icon row + cursive name + "Nutrióloga") as a placeholder; swap it for an `<img>` once the client provides a high-res logo, per the comment in that file.
 
 ### Pages
 
-File-based routing in `src/pages/`: `index.astro`, `sobre-mi.astro`, `servicios.astro`, `blog/index.astro`, `blog/[id].astro`, `contacto.astro`. Inner pages share `PageHeader.astro` for their banner; the homepage has its own hero (not extracted into a component since it's used exactly once).
+File-based routing in `src/pages/`: `index.astro`, `sobre-mi.astro`, `servicios.astro`, `blog/index.astro`, `blog/[id].astro`, `contacto.astro`. Inner pages share `ui/PageHeader.astro` for their banner; `index.astro` is a thin composition of section components from `src/components/home/` (`Hero.astro`, `ServiciosPreview.astro`, `TestimoniosPreview.astro`, `BlogPreview.astro`, `CtaFinal.astro`) — each fetches its own data and is single-use, which is why they live apart from the reusable atoms in `ui/`/`cards/`/`layout/`. Four of those sections share `ui/Section.astro`, a generic wrapper that handles the alternating tinted/plain background rhythm and an optional `SectionHeading`; `Hero.astro` doesn't fit that pattern and renders its own `<section>`.
 
 Images are referenced as plain `<img>` tags (not `astro:assets`/`<Image>`) — the real photos live in `public/` rather than `src/assets/`, and blog placeholder images are external URLs, so Astro's build-time optimization doesn't apply cleanly to either; this was a deliberate simplification, not an oversight.

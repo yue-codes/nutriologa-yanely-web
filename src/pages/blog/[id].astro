@@ -1,13 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageHeader from "@components/PageHeader.astro";
+import PageHeader from "@components/ui/PageHeader.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
     params: { id: post.id },
-    props: { post }
+    props: { post },
   }));
 }
 
@@ -17,11 +17,14 @@ const { Content } = await render(post);
 const fechaFormateada = post.data.fecha.toLocaleDateString("es-MX", {
   day: "numeric",
   month: "long",
-  year: "numeric"
+  year: "numeric",
 });
 ---
 
-<Layout title={`${post.data.titulo} | Blog Nutrióloga Yanely García`} description={post.data.resumen}>
+<Layout
+  title={`${post.data.titulo} | Blog Nutrióloga Yanely García`}
+  description={post.data.resumen}
+>
   <PageHeader eyebrow={post.data.categoria} titulo={post.data.titulo} />
 
   <article class="mx-auto max-w-3xl px-4 py-16">
@@ -32,11 +35,14 @@ const fechaFormateada = post.data.fecha.toLocaleDateString("es-MX", {
       height="500"
       class="w-full rounded-3xl object-cover"
     />
-    <p class="mt-4 font-body text-sm text-ink/60">{fechaFormateada}</p>
-    <div class="blog-content mt-6 font-body text-ink/90">
+    <p class="font-body text-ink/60 mt-4 text-sm">{fechaFormateada}</p>
+    <div class="blog-content font-body text-ink/90 mt-6">
       <Content />
     </div>
-    <a href="/blog" class="mt-10 inline-block font-body font-semibold text-primary hover:underline">
+    <a
+      href="/blog"
+      class="font-body text-primary mt-10 inline-block font-semibold hover:underline"
+    >
       ← Volver al blog
     </a>
   </article>

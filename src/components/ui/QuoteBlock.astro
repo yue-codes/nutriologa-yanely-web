@@ -10,6 +10,6 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<p class:list={["font-accent text-3xl text-love md:text-4xl", className]}>
+<p class:list={["font-accent text-love text-3xl md:text-4xl", className]}>
   <slot />
 </p>

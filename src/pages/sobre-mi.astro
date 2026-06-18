@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageHeader from "@components/PageHeader.astro";
-import QuoteBlock from "@components/QuoteBlock.astro";
+import PageHeader from "@components/ui/PageHeader.astro";
+import QuoteBlock from "@components/ui/QuoteBlock.astro";
 ---
 
 <Layout
@@ -20,11 +20,16 @@ import QuoteBlock from "@components/QuoteBlock.astro";
         class="w-full rounded-3xl object-cover"
       />
       <div>
-        <h2 class="font-heading text-2xl font-semibold text-ink">LN. Ed. Yanely García</h2>
-        <p class="font-body text-ink/70">Nutrióloga · Céd. Profesional 11856808</p>
-        <p class="mt-4 font-body text-ink/80">
-          Acompaño procesos de cambio de hábitos y alimentación tomando en cuenta quién eres, tu
-          día a día y tu situación particular — no solo una hoja de dieta genérica.
+        <h2 class="font-heading text-ink text-2xl font-semibold">
+          LN. Ed. Yanely García
+        </h2>
+        <p class="font-body text-ink/70">
+          Nutrióloga · Céd. Profesional 11856808
+        </p>
+        <p class="font-body text-ink/80 mt-4">
+          Acompaño procesos de cambio de hábitos y alimentación tomando en
+          cuenta quién eres, tu día a día y tu situación particular — no solo
+          una hoja de dieta genérica.
         </p>
       </div>
     </div>
@@ -32,25 +37,33 @@ import QuoteBlock from "@components/QuoteBlock.astro";
 
   <section class="bg-white/40 px-4 py-16">
     <div class="mx-auto max-w-3xl text-center">
-      <p class="font-body text-sm font-bold tracking-wide text-accent uppercase">Mi filosofía</p>
-      <QuoteBlock class="mt-4">Amor, cariño y respeto a la nutrición.</QuoteBlock>
+      <p
+        class="font-body text-accent text-sm font-bold tracking-wide uppercase"
+      >
+        Mi filosofía
+      </p>
+      <QuoteBlock class="mt-4"
+        >Amor, cariño y respeto a la nutrición.</QuoteBlock
+      >
 
-      <div class="mt-8 space-y-4 text-left font-body text-ink/80">
+      <div class="font-body text-ink/80 mt-8 space-y-4 text-left">
         <p>
-          Durante mucho tiempo, el área de nutrición se enfocó en dar una dieta restrictiva: una
-          hoja, sin tomar en cuenta los hábitos ni el cuidado real de la persona. Hoy la nutrición
-          evolucionó — un buen acompañamiento toma en cuenta la situación socioeconómica de cada
-          persona, sus hábitos y su contexto, para que el plan se adapte a ti y no tú al plan. Así
-          siempre debió haber sido.
+          Durante mucho tiempo, el área de nutrición se enfocó en dar una dieta
+          restrictiva: una hoja, sin tomar en cuenta los hábitos ni el cuidado
+          real de la persona. Hoy la nutrición evolucionó — un buen
+          acompañamiento toma en cuenta la situación socioeconómica de cada
+          persona, sus hábitos y su contexto, para que el plan se adapte a ti y
+          no tú al plan. Así siempre debió haber sido.
         </p>
         <p>
-          Hoy en día muchos profesionales se enfocan en medidas específicas y en una
-          personalización real. Mi trabajo no se enfoca en que pierdas peso, sino en lograr una
-          buena transición hacia un estilo de vida que puedas mantener.
+          Hoy en día muchos profesionales se enfocan en medidas específicas y en
+          una personalización real. Mi trabajo no se enfoca en que pierdas peso,
+          sino en lograr una buena transición hacia un estilo de vida que puedas
+          mantener.
         </p>
         <p>
-          Sé que todavía me falta un largo camino por recorrer, y cada día me siento más feliz de
-          acompañar este proceso junto a mis pacientes.
+          Sé que todavía me falta un largo camino por recorrer, y cada día me
+          siento más feliz de acompañar este proceso junto a mis pacientes.
         </p>
       </div>
     </div>

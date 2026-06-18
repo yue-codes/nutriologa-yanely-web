@@ -1,0 +1,15 @@
+---
+import Section from "@components/ui/Section.astro";
+import TestimonialCard from "@components/cards/TestimonialCard.astro";
+import { testimonios } from "@data/testimonios";
+---
+
+<Section eyebrow="Lo que dicen de mí" titulo="Testimonios" centrado>
+  <div class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {
+      testimonios
+        .slice(0, 3)
+        .map((testimonio) => <TestimonialCard testimonio={testimonio} />)
+    }
+  </div>
+</Section>

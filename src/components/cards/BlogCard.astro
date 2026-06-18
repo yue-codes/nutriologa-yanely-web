@@ -10,13 +10,13 @@ const { titulo, resumen, fecha, categoria, imagen, imagenAlt } = entry.data;
 const fechaFormateada = fecha.toLocaleDateString("es-MX", {
   day: "numeric",
   month: "long",
-  year: "numeric"
+  year: "numeric",
 });
 ---
 
 <a
   href={`/blog/${entry.id}`}
-  class="group flex flex-col overflow-hidden rounded-3xl bg-white/70 shadow-sm ring-1 ring-ink/5 transition-shadow hover:shadow-md"
+  class="group ring-ink/5 flex flex-col overflow-hidden rounded-3xl bg-white/70 shadow-sm ring-1 transition-shadow hover:shadow-md"
 >
   <img
     src={imagen}
@@ -27,12 +27,20 @@ const fechaFormateada = fecha.toLocaleDateString("es-MX", {
     class="h-48 w-full object-cover"
   />
   <div class="flex flex-1 flex-col p-6">
-    <span class="font-body text-xs font-bold tracking-wide text-accent uppercase">{categoria}</span>
-    <h3 class="mt-2 font-heading text-lg font-semibold text-ink group-hover:text-primary">
+    <span
+      class="font-body text-accent text-xs font-bold tracking-wide uppercase"
+      >{categoria}</span
+    >
+    <h3
+      class="font-heading text-ink group-hover:text-primary mt-2 text-lg font-semibold"
+    >
       {titulo}
     </h3>
-    <p class="mt-2 flex-1 font-body text-sm text-ink/80">{resumen}</p>
-    <time datetime={fecha.toISOString()} class="mt-4 font-body text-xs text-ink/60">
+    <p class="font-body text-ink/80 mt-2 flex-1 text-sm">{resumen}</p>
+    <time
+      datetime={fecha.toISOString()}
+      class="font-body text-ink/60 mt-4 text-xs"
+    >
       {fechaFormateada}
     </time>
   </div>

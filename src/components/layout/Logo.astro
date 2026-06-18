@@ -19,15 +19,23 @@ interface Props {
 const { class: className, dark = false } = Astro.props;
 ---
 
-<a href="/" class:list={["inline-flex flex-col items-center leading-none", className]}>
+<a
+  href="/"
+  class:list={["inline-flex flex-col items-center leading-none", className]}
+>
   <span class="flex items-center gap-1">
-    <CerebroIcon class="h-4 w-4 text-secondary" />
-    <MaizIcon class="h-4 w-4 text-accent" />
-    <HojaIcon class="h-4 w-4 text-primary" />
-    <CorazonIcon class="h-4 w-4 text-love" />
+    <CerebroIcon class="text-secondary h-4 w-4" />
+    <MaizIcon class="text-accent h-4 w-4" />
+    <HojaIcon class="text-primary h-4 w-4" />
+    <CorazonIcon class="text-love h-4 w-4" />
   </span>
-  <span class="font-accent text-2xl text-love">Yanely García</span>
-  <span class:list={["-mt-1 font-body text-[0.6rem] font-bold tracking-widest uppercase", dark ? "text-cream/70" : "text-ink/60"]}>
+  <span class="font-accent text-love text-2xl">Yanely García</span>
+  <span
+    class:list={[
+      "font-body -mt-1 text-[0.6rem] font-bold tracking-widest uppercase",
+      dark ? "text-cream/70" : "text-ink/60",
+    ]}
+  >
     Nutrióloga
   </span>
 </a>

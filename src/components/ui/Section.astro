@@ -1,0 +1,34 @@
+---
+/**
+ * Envoltura de sección reutilizable: padding estándar, fondo opcionalmente
+ * teñido (bg-white/40) y SectionHeading opcional integrado. Captura el
+ * patrón "franja plana / franja teñida" que se alterna en Inicio, para no
+ * repetirlo a mano en cada sección.
+ */
+import SectionHeading from "@components/ui/SectionHeading.astro";
+
+interface Props {
+  tinted?: boolean;
+  eyebrow?: string;
+  titulo?: string;
+  centrado?: boolean;
+  class?: string;
+}
+
+const {
+  tinted = false,
+  eyebrow,
+  titulo,
+  centrado = false,
+  class: className,
+} = Astro.props;
+---
+
+<section class:list={["px-4 py-16", tinted && "bg-white/40", className]}>
+  {
+    titulo && (
+      <SectionHeading eyebrow={eyebrow} titulo={titulo} centrado={centrado} />
+    )
+  }
+  <slot />
+</section>
