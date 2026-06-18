@@ -1,0 +1,56 @@
+---
+/**
+ * TrustMetrics — métricas de confianza en un grid compacto, embebido al
+ * final del Hero (no es una sección propia). CountUp anima cada cifra de 0
+ * a su valor final; client:visible difiere la hidratación hasta que la
+ * sección entra en pantalla, para que la animación se vea en el momento
+ * correcto sin bloquear la carga inicial.
+ */
+import { CountUp } from "@components/ui/CountUp.tsx";
+---
+
+<div class="mx-auto mt-8 max-w-3xl md:mt-10" aria-label="Métricas de confianza">
+  <div class="mx-auto grid w-full grid-cols-3 gap-x-4 gap-y-8" role="list">
+    <div class="flex flex-col items-center gap-1.5 text-center" role="listitem">
+      <p
+        class="font-heading text-ink text-3xl font-semibold tabular-nums md:text-4xl"
+      >
+        +<CountUp client:visible initial={0} final={5} duration={1200} />
+      </p>
+      <p class="text-primary text-xs font-bold tracking-[0.2em] uppercase">
+        Años de experiencia
+      </p>
+      <p class="text-ink/50 text-[11px]">acompañando pacientes</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-1.5 text-center" role="listitem">
+      <p
+        class="font-heading text-ink text-3xl font-semibold tabular-nums md:text-4xl"
+      >
+        +<CountUp client:visible initial={0} final={500} duration={1200} />
+      </p>
+      <p class="text-primary text-xs font-bold tracking-[0.2em] uppercase">
+        Pacientes atendidos
+      </p>
+      <p class="text-ink/50 text-[11px]">presencial y en línea</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-1.5 text-center" role="listitem">
+      <p
+        class="font-heading text-ink text-3xl font-semibold tabular-nums md:text-4xl"
+      >
+        <CountUp
+          client:visible
+          initial={0}
+          final={5}
+          decimals={1}
+          duration={1200}
+        />
+      </p>
+      <p class="text-primary text-xs font-bold tracking-[0.2em] uppercase">
+        Calificación promedio
+      </p>
+      <p class="text-secondary text-sm" aria-hidden="true">★★★★★</p>
+    </div>
+  </div>
+</div>
