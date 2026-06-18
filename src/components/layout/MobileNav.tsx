@@ -68,7 +68,7 @@ export default function MobileNav({
       {mounted &&
         createPortal(
           <div
-            class={`bg-cream fixed inset-x-0 top-16 bottom-0 z-30 transition-opacity duration-300 ${
+            class={`bg-cream fixed inset-x-0 top-20 bottom-0 z-30 transition-opacity duration-300 ${
               open ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
             aria-hidden={!open}
