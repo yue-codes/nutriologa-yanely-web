@@ -3,17 +3,22 @@ titulo: "Qué hacer cuando comes fuera de casa"
 resumen: "Comer en la calle o en una reunión no significa romper tu plan. Aquí algunas ideas prácticas."
 fecha: 2026-03-18
 categoria: "Consejos"
-imagen: "https://loremflickr.com/800/500/restaurant,food"
-imagenAlt: "Mesa de restaurante con platillos servidos"
+imagen: "/blog/comerafuera.jpg"
+imagenAlt: "Varias manos tomando rebanadas de una pizza compartida en una reunión"
 ---
 
-Comer fuera de casa es parte de la vida social, y no tiene por qué generarte culpa. Algunas ideas que pueden ayudarte:
+Comer fuera de casa es parte de la vida social y no debería generarte culpa. Así es como sugiero planearlo.
 
-1. **Revisa el menú con calma**, no decidas con hambre extrema.
-2. **Empieza con algo de verdura o ensalada**, si está disponible.
-3. **Disfruta sin culpa.** Una comida no construye ni destruye un plan completo.
-4. **Vuelve a tu rutina en la siguiente comida**, sin "compensar" de más.
+### Antes de salir
 
-La meta es que puedas vivir tu vida social sin sentir que tu alimentación es una jaula.
+Evita llegar con hambre extrema — un antojo ligero antes de salir te ayuda a elegir con más calma en el lugar.
+
+### En el lugar
+
+Revisa el menú completo antes de pedir, empieza por algo de verdura si hay disponible, y disfruta sin culpa: una sola comida no construye ni destruye un plan completo.
+
+### Al volver a casa
+
+Retoma tu rutina en la siguiente comida, sin intentar "compensar" de más — eso suele generar justo el efecto contrario.
 
 > _Este es un post de ejemplo para mostrar el diseño del blog — Yanely puede reemplazar este contenido por sus artículos reales._

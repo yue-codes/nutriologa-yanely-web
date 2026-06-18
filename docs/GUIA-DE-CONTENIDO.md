@@ -44,7 +44,7 @@ titulo: "Título del post"
 resumen: "Un resumen de 1-2 líneas; aparece en las tarjetas del blog."
 fecha: 2026-06-01
 categoria: "Consejos" # debe ser exactamente: Consejos, Salud, Hábitos o Motivación
-imagen: "https://..." # URL de una imagen, o una ruta local como /mi-imagen.jpg
+imagen: "/blog/mi-imagen.jpg" # sube la foto a public/blog/ y usa esa misma ruta (o pega una URL https://... si todavía no tienes foto)
 imagenAlt: "Descripción corta de la imagen"
 ---
 

@@ -63,6 +63,11 @@ de contacto, o ajustar la paleta de colores y la tipografía.
 - **Tipografía**: Fraunces (títulos), Nunito Sans (cuerpo), Caveat (frases destacadas), vía
   [Fontsource](https://fontsource.org/).
 
+## SEO y vista previa al compartir
+
+- `astro.config.mjs` define `site`, usado para generar URLs absolutas (Open Graph, canonical). Por ahora apunta a un **dominio temporal de Netlify** — actualízalo ahí cuando el sitio tenga su dominio final.
+- `src/layouts/Layout.astro` agrega las etiquetas Open Graph / Twitter Card. El texto y la imagen que se muestran al compartir el enlace son independientes del `<meta name="description">` (que es el que usan los buscadores) y se ajustan ahí mismo.
+
 ## Alias de rutas
 
 Configurados en `tsconfig.json`:
