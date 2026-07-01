@@ -1,11 +1,5 @@
 import type { ComponentChildren } from "preact";
-import { useEffect, useRef, useState } from "preact/hooks";
-
-// debe coincidir con los anchos de slide (w-[...]) usados en
-// TestimoniosPreview.astro para cada breakpoint
-const MOBILE = { perPage: 1, slideWidth: 85 };
-const DESKTOP = { perPage: 3, slideWidth: 28 };
-const DESKTOP_QUERY = "(min-width: 768px)";
+import { useRef, useState } from "preact/hooks";
 
 interface Props {
   total: number;
@@ -13,27 +7,10 @@ interface Props {
 }
 
 export default function TestimoniosCarousel({ total, children }: Props) {
-  const [isDesktop, setIsDesktop] = useState(false);
   const [page, setPage] = useState(0);
   const touchStartX = useRef<number | null>(null);
 
-  useEffect(() => {
-    const mql = window.matchMedia(DESKTOP_QUERY);
-    const update = () => setIsDesktop(mql.matches);
-    update();
-    mql.addEventListener("change", update);
-    return () => mql.removeEventListener("change", update);
-  }, []);
-
-  const { perPage, slideWidth } = isDesktop ? DESKTOP : MOBILE;
-  const pageCount = Math.ceil(total / perPage);
-
-  useEffect(() => {
-    setPage((p) => Math.min(p, pageCount - 1));
-  }, [pageCount]);
-
-  const goPage = (p: number) =>
-    setPage(((p % pageCount) + pageCount) % pageCount);
+  const goPage = (p: number) => setPage(((p % total) + total) % total);
 
   const onTouchStart = (e: TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -52,8 +29,49 @@ export default function TestimoniosCarousel({ total, children }: Props) {
   return (
     <div class="relative" onKeyDown={onKeyDown} tabIndex={0}>
       <p class="sr-only" aria-live="polite">
-        Página {page + 1} de {pageCount}
+        Testimonio {page + 1} de {total}
       </p>
+
+      <button
+        type="button"
+        onClick={() => goPage(page - 1)}
+        aria-label="Testimonio anterior"
+        class="text-ink/30 hover:text-ink absolute top-10 -left-2 z-10 p-2 transition-colors md:-left-12 md:top-12"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-6"
+          aria-hidden="true"
+        >
+          <path d="M15 6l-6 6 6 6" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        onClick={() => goPage(page + 1)}
+        aria-label="Siguiente testimonio"
+        class="text-ink/30 hover:text-ink absolute top-10 -right-2 z-10 p-2 transition-colors md:-right-12 md:top-12"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-6"
+          aria-hidden="true"
+        >
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+      </button>
 
       <div
         class="overflow-hidden"
@@ -62,19 +80,19 @@ export default function TestimoniosCarousel({ total, children }: Props) {
       >
         <div
           class="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${page * perPage * slideWidth}%)` }}
+          style={{ transform: `translateX(-${page * 100}%)` }}
         >
           {children}
         </div>
       </div>
 
-      <div class="mt-6 flex items-center justify-center gap-2">
-        {Array.from({ length: pageCount }).map((_, i) => (
+      <div class="mt-8 flex items-center justify-center gap-2">
+        {Array.from({ length: total }).map((_, i) => (
           <button
             key={i}
             type="button"
             onClick={() => goPage(i)}
-            aria-label={`Ir a la página ${i + 1}`}
+            aria-label={`Ir al testimonio ${i + 1}`}
             class={`h-2.5 rounded-full transition-all duration-300 ${
               i === page ? "bg-love w-6" : "bg-ink/20 w-2.5"
             }`}

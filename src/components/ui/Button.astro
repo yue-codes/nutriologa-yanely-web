@@ -1,12 +1,12 @@
 ---
 /**
- * Botón/enlace reutilizable con 3 variantes de color.
+ * Botón/enlace reutilizable con 4 variantes de color.
  * Úsalo en vez de escribir <a class="..."> a mano, así todos los botones
  * del sitio cambian de estilo en un solo lugar si hace falta.
  */
 interface Props {
   href: string;
-  variant?: "primary" | "love" | "outline";
+  variant?: "primary" | "love" | "accent" | "outline";
   class?: string;
   target?: "_blank" | "_self";
 }
@@ -16,6 +16,7 @@ const { href, variant = "primary", class: className, target } = Astro.props;
 const variantes: Record<string, string> = {
   primary: "bg-primary text-cream hover:bg-primary-dark",
   love: "bg-love text-cream hover:opacity-90",
+  accent: "bg-accent text-cream hover:opacity-90",
   outline:
     "border-2 border-primary text-primary hover:bg-primary hover:text-cream",
 };

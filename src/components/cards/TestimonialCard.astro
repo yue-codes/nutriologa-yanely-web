@@ -3,45 +3,27 @@ import type { Testimonio } from "@data/testimonios";
 
 interface Props {
   testimonio: Testimonio;
-  accent?: "primary" | "secondary" | "accent" | "love";
 }
-const { testimonio, accent = "love" } = Astro.props;
-
-const colorTexto: Record<string, string> = {
-  primary: "text-primary",
-  secondary: "text-secondary",
-  accent: "text-accent",
-  love: "text-love",
-};
-const colorAnillo: Record<string, string> = {
-  primary: "ring-primary/40",
-  secondary: "ring-secondary/50",
-  accent: "ring-accent/40",
-  love: "ring-love/40",
-};
+const { testimonio } = Astro.props;
 ---
 
 <figure
-  class="relative flex h-full min-h-80 flex-col justify-center overflow-hidden rounded-3xl bg-white p-8 shadow-md"
+  class="flex w-full flex-shrink-0 flex-col items-center px-2 text-center"
 >
-  <span
-    aria-hidden="true"
-    class={`font-heading absolute -top-6 right-5 text-8xl leading-none opacity-[0.08] ${colorTexto[accent]}`}
+  <img
+    src={testimonio.avatar}
+    alt={`Foto de ${testimonio.nombre}`}
+    width="112"
+    height="112"
+    loading="lazy"
+    class="ring-secondary/50 h-28 w-28 rounded-full object-cover shadow-md ring-4"
+  />
+  <figcaption class="font-heading text-ink mt-5 text-xl font-semibold">
+    {testimonio.nombre}
+  </figcaption>
+  <blockquote
+    class="font-body text-ink/70 mx-auto mt-4 max-w-md text-lg italic"
   >
-    ”
-  </span>
-  <blockquote class="font-body text-ink/90 relative z-10 text-lg">
     “{testimonio.comentario}”
   </blockquote>
-  <figcaption class="relative z-10 mt-6 flex items-center gap-3">
-    <img
-      src={testimonio.avatar}
-      alt={`Foto de ${testimonio.nombre}`}
-      width="52"
-      height="52"
-      loading="lazy"
-      class={`h-14 w-14 rounded-full object-cover ring-2 ${colorAnillo[accent]}`}
-    />
-    <span class="font-body text-ink font-semibold">{testimonio.nombre}</span>
-  </figcaption>
 </figure>

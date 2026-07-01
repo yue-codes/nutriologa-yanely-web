@@ -2,22 +2,22 @@
 import Section from "@components/ui/Section.astro";
 import TestimonialCard from "@components/cards/TestimonialCard.astro";
 import TestimoniosCarousel from "@components/home/TestimoniosCarousel.tsx";
+import MaizIcon from "@icons/MaizIcon.astro";
 import { testimonios } from "@data/testimonios";
-
-const acentos = ["love", "primary", "secondary", "accent"] as const;
 ---
 
-<Section eyebrow="Reviewss" titulo="Lo que dicen de mí" centrado>
-  <div class="mx-auto mt-10 max-w-2xl md:max-w-5xl">
+<Section eyebrow="Testimonios" titulo="Lo que dicen de mí" centrado>
+  <div class="mt-5 flex items-center justify-center gap-3">
+    <span class="bg-accent/40 h-px w-8"></span>
+    <MaizIcon class="text-accent size-5" />
+    <span class="bg-accent/40 h-px w-8"></span>
+  </div>
+
+  <div class="mx-auto mt-10 max-w-xl md:max-w-2xl">
     <TestimoniosCarousel client:visible total={testimonios.length}>
       {
-        testimonios.map((testimonio, i) => (
-          <div class="w-[85%] flex-shrink-0 px-2 md:w-[28%]">
-            <TestimonialCard
-              testimonio={testimonio}
-              accent={acentos[i % acentos.length]}
-            />
-          </div>
+        testimonios.map((testimonio) => (
+          <TestimonialCard testimonio={testimonio} />
         ))
       }
     </TestimoniosCarousel>

@@ -43,7 +43,7 @@ Crea un archivo nuevo en `src/content/blog/` con extensión `.md` (por ejemplo
 titulo: "Título del post"
 resumen: "Un resumen de 1-2 líneas; aparece en las tarjetas del blog."
 fecha: 2026-06-01
-categoria: "Consejos" # debe ser exactamente: Consejos, Salud, Hábitos o Motivación
+categoria: "Consejos" # debe ser exactamente: Consejos, Salud, Hábitos, Motivación o Mi libro
 imagen: "/blog/mi-imagen.jpg" # sube la foto a public/blog/ y usa esa misma ruta (o pega una URL https://... si todavía no tienes foto)
 imagenAlt: "Descripción corta de la imagen"
 ---
@@ -52,6 +52,27 @@ Aquí escribes el contenido del post, en Markdown normal.
 ```
 
 El post aparece solo en `/blog`, ordenado por fecha — no hay que tocar ninguna otra página.
+
+Si quieres que el post termine con un botón de WhatsApp (por ejemplo, para vender algo desde
+esa entrada), agrega estas dos líneas más al frontmatter — si las omites, el post se ve normal,
+sin botón:
+
+```md
+ctaTexto: "Pídelo por WhatsApp"
+ctaWhatsappMensaje: "Hola Yanely, me interesa..."
+```
+
+## Editar o agregar un libro
+
+Archivo: `src/data/libros.ts` — es lo que alimenta la tarjeta del libro en Inicio (imagen,
+autor, resumen, descripción y a qué entrada del blog manda el botón "Más información").
+
+El botón de compra real ("Pídelo por WhatsApp") vive en la entrada del blog a la que apunta
+`blogSlug`, no en esta tarjeta — para cambiar el mensaje de WhatsApp del libro, edita
+`ctaWhatsappMensaje` en esa entrada (ver sección anterior).
+
+Para agregar un segundo libro en el futuro, agrega otro bloque `{ ... }` al arreglo `libros` y
+su entrada de blog correspondiente; hoy solo se muestra el primero (`libros[0]`) en Inicio.
 
 ## Cambiar datos de contacto
 

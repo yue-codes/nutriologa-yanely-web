@@ -1,7 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PageHeader from "@components/ui/PageHeader.astro";
+import Button from "@components/ui/Button.astro";
 import { getCollection, render } from "astro:content";
+import { linkWhatsApp } from "@data/contacto";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -39,6 +41,18 @@ const fechaFormateada = post.data.fecha.toLocaleDateString("es-MX", {
     <div class="blog-content font-body text-ink/90 mt-6">
       <Content />
     </div>
+    {
+      post.data.ctaTexto && post.data.ctaWhatsappMensaje && (
+        <Button
+          href={linkWhatsApp(post.data.ctaWhatsappMensaje)}
+          variant="accent"
+          target="_blank"
+          class="mt-8"
+        >
+          {post.data.ctaTexto}
+        </Button>
+      )
+    }
     <a
       href="/blog"
       class="font-body text-primary mt-10 inline-block font-semibold hover:underline"

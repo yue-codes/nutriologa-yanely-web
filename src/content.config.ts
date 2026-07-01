@@ -12,11 +12,15 @@ const blog = defineCollection({
     titulo: z.string(),
     resumen: z.string(),
     fecha: z.coerce.date(),
-    categoria: z.enum(["Consejos", "Salud", "Hábitos", "Motivación"]),
+    categoria: z.enum(["Consejos", "Salud", "Hábitos", "Motivación", "Mi libro"]),
     // URL de imagen (puede ser local en /public o externa). Las entradas
     // de ejemplo usan imágenes en línea como referencia visual temporal.
     imagen: z.string(),
-    imagenAlt: z.string()
+    imagenAlt: z.string(),
+    // CTA opcional: si se define, la página del post muestra un botón de
+    // WhatsApp al final (lo usa la entrada del libro, no los posts normales).
+    ctaTexto: z.string().optional(),
+    ctaWhatsappMensaje: z.string().optional()
   })
 });
 

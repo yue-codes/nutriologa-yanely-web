@@ -23,7 +23,7 @@ cursivo de tu firma en el logo.
 ### 5 secciones
 
 1. **Inicio** — presentación, tu frase "Amor, cariño y respeto a la nutrición", servicios,
-   testimonios y blog destacados.
+   testimonios, tu libro y blog destacados.
 2. **Sobre mí** — tu cédula profesional y tu filosofía completa de trabajo: la transición de la
    nutrición restrictiva de antes al acompañamiento real que tú ofreces hoy.
 3. **Servicios** — los padecimientos que atiendes, agrupados en 4 categorías claras (metabólico
@@ -59,6 +59,8 @@ temporales que conviene reemplazar antes de publicarlo:
 - [ ] Años de experiencia y número de pacientes atendidos reales (las cifras que aparecen en Inicio son de ejemplo)
 - [ ] Confirmar o reemplazar las fotos finales que quieras usar
 - [ ] Primeros artículos reales del blog (hay 7 de ejemplo para mostrar cómo se ve)
+- [ ] Datos reales de tu libro: portada (hoy hay una portada genérica de ejemplo), título,
+      descripción y precio/forma de pedirlo
 
 ## Próximos pasos
 
