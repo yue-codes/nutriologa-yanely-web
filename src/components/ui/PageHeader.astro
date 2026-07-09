@@ -1,27 +1,97 @@
 ---
-/** Encabezado de página simple, usado en Sobre mí, Servicios, Blog y Contacto. */
+/**
+ * Encabezado de página simple, usado en Sobre mí, Servicios, Blog y Contacto.
+ * `imagenFondo` es opcional: sin ella se ve igual que siempre (fondo
+ * bg-secondary/20, texto oscuro, alto según el contenido); con ella el
+ * fondo pasa a ser la foto con un velo oscuro encima (mismo patrón
+ * bg-ink/text-cream que el Footer) para que el título siga siendo legible,
+ * y el header toma una altura fija (h-[420px]) — así todos los banners con
+ * foto miden igual entre sí (Servicios, Contacto, etc.), sin depender de
+ * cuánto texto tenga cada uno.
+ *
+ * `imagenFondoRotar` gira la foto 90° — pensado para fotos verticales
+ * usadas en este banner horizontal. Girar una imagen ya recortada con
+ * object-cover la deja como una tira angosta (las proporciones no cuadran),
+ * así que en vez de eso la imagen, ANTES de rotar, recibe el ancho/alto del
+ * header ya intercambiados (w-[420px] / h-[100vw]) — al girarla 90° esas
+ * dimensiones vuelven a cuadrar exactas con el header, sin dejar huecos ni
+ * verse chica. Los 420px se repiten en tres lugares a propósito (alto del
+ * header, ancho de la imagen rotada); si cambias uno, cambia los demás igual.
+ */
 interface Props {
   eyebrow?: string;
   titulo: string;
   descripcion?: string;
+  imagenFondo?: string;
+  imagenFondoAlt?: string;
+  imagenFondoRotar?: boolean;
 }
-const { eyebrow, titulo, descripcion } = Astro.props;
+const {
+  eyebrow,
+  titulo,
+  descripcion,
+  imagenFondo,
+  imagenFondoAlt,
+  imagenFondoRotar = false,
+} = Astro.props;
 ---
 
-<header class="bg-secondary/20 px-4 py-16 text-center">
+<header
+  class:list={[
+    "relative isolate overflow-hidden px-4 text-center",
+    imagenFondo
+      ? "flex h-[420px] flex-col items-center justify-center"
+      : "py-16",
+    imagenFondo ? "bg-ink" : "bg-secondary/20",
+  ]}
+>
+  {
+    imagenFondo && (
+      <>
+        <img
+          src={imagenFondo}
+          alt={imagenFondoAlt ?? ""}
+          class:list={[
+            "absolute -z-20 object-cover",
+            imagenFondoRotar
+              ? "top-1/2 left-1/2 h-[100vw] w-[420px] -translate-x-1/2 -translate-y-1/2 rotate-90"
+              : "inset-0 h-full w-full",
+          ]}
+        />
+        <div class="bg-ink/70 absolute inset-0 -z-10" aria-hidden="true" />
+      </>
+    )
+  }
   {
     eyebrow && (
-      <p class="font-body text-accent text-sm font-bold tracking-wide uppercase">
+      <p
+        class:list={[
+          "font-body text-sm font-bold tracking-wide uppercase",
+          imagenFondo ? "text-secondary" : "text-accent",
+        ]}
+      >
         {eyebrow}
       </p>
     )
   }
-  <h1 class="font-heading text-ink mt-2 text-4xl font-semibold md:text-5xl">
+  <h1
+    class:list={[
+      "font-heading mt-2 text-4xl font-semibold md:text-5xl",
+      imagenFondo ? "text-cream" : "text-ink",
+    ]}
+  >
     {titulo}
   </h1>
   {
     descripcion && (
-      <p class="font-body text-ink/80 mx-auto mt-4 max-w-2xl">{descripcion}</p>
+      <p
+        class:list={[
+          "font-body mx-auto mt-4 max-w-2xl",
+          imagenFondo ? "text-cream/80" : "text-ink/80",
+        ]}
+      >
+        {descripcion}
+      </p>
     )
   }
 </header>

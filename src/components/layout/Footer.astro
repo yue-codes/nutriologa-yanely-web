@@ -2,11 +2,11 @@
 import Logo from "@components/layout/Logo.astro";
 import InstagramIcon from "@icons/InstagramIcon.astro";
 import FacebookIcon from "@icons/FacebookIcon.astro";
+import TikTokIcon from "@icons/TikTokIcon.astro";
 import WhatsAppIcon from "@icons/WhatsAppIcon.astro";
 import MapPinIcon from "@icons/MapPinIcon.astro";
+import Credits from "@components/layout/Credits.astro";
 import { contacto, linkWhatsApp } from "@data/contacto";
-
-const anio = new Date().getFullYear();
 ---
 
 <footer class="bg-ink text-cream mt-16">
@@ -65,13 +65,18 @@ const anio = new Date().getFullYear();
         >
           <FacebookIcon class="h-6 w-6" />
         </a>
+        <a
+          href={contacto.tiktok}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          class="hover:text-secondary"
+        >
+          <TikTokIcon class="h-6 w-6" />
+        </a>
       </div>
     </div>
   </div>
 
-  <p
-    class="border-cream/10 font-body text-cream/60 border-t px-4 py-4 text-center text-xs"
-  >
-    © {anio} Nutrióloga Yanely García. Todos los derechos reservados.
-  </p>
+  <Credits owner="Nutrióloga Yanely García" />
 </footer>

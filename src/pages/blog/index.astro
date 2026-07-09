@@ -13,7 +13,13 @@ const posts = (await getCollection("blog")).sort(
   title="Blog | Nutrióloga Yanely García"
   description="Consejos de nutrición, salud, hábitos y frases motivacionales."
 >
-  <PageHeader eyebrow="Aprende y nutre tu día" titulo="Blog" />
+  <PageHeader
+    eyebrow="Aprende y nutre tu día"
+    titulo="Blog"
+    imagenFondo="/blog.jpg"
+    imagenFondoAlt="Tostadas de aguacate con huevo y salmón sobre una tabla de madera"
+    imagenFondoRotar
+  />
 
   <section class="px-4 py-16">
     <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">

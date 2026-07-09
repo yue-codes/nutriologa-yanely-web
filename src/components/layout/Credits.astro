@@ -1,0 +1,35 @@
+---
+/**
+ * Línea de créditos para el fondo del Footer: copyright del sitio + firma
+ * de Nicrosil.dev. Pensado para copiarse tal cual a otros proyectos — lo
+ * único que cambia de un proyecto a otro es `owner` (y `year`, si se quiere
+ * fijar en vez de usar el actual). Si el sitio destino no está en español,
+ * traduce "Todos los derechos reservados." al copiarlo.
+ */
+import NicrosilIcon from "@icons/NicrosilIcon.astro";
+
+interface Props {
+  owner: string;
+  year?: number;
+  class?: string;
+}
+
+const {
+  owner,
+  year = new Date().getFullYear(),
+  class: className,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "border-cream/10 font-body text-cream/60 flex flex-col items-center justify-center gap-2 border-t px-4 py-4 text-center text-xs md:flex-row md:gap-4",
+    className,
+  ]}
+>
+  <p>© {year} {owner}. Todos los derechos reservados.</p>
+  <p class="text-cream/40 flex items-center gap-1.5 text-[0.7rem]">
+    <NicrosilIcon class="text-cream/40 h-3.5 w-3.5" />
+    Designed by Nicrosil.dev
+  </p>
+</div>

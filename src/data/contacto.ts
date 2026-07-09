@@ -1,24 +1,40 @@
 /**
  * Datos de contacto del negocio. Es la única fuente de verdad: Navbar,
  * Footer, el botón flotante de WhatsApp y la página de Contacto leen de aquí.
- *
- * ⚠️ "whatsapp" y "email" son GENÉRICOS/placeholder por ahora — reemplaza
- * estos dos valores con los reales en cuanto los tengas. El usuario de
- * Instagram sí es el real (tomado de su Linktree).
  */
 
 export const contacto = {
-  whatsapp: "5215555555555", // TODO: número real, formato 52 + 10 dígitos, sin "+" ni espacios
+  whatsapp: "529516117406", // 52 + 10 dígitos, sin "+" ni espacios
   whatsappMensaje: "Hola Yanely, me gustaría agendar una consulta",
-  instagram: "https://www.instagram.com/nutriyanelygarcia",
-  facebook: "https://www.facebook.com/nutriyanelygarcia",
-  email: "contacto@nutriologayanely.com", // TODO: correo real
+  instagram: "https://www.instagram.com/nutriologayanely/",
+  facebook: "https://www.facebook.com/Nutriologayanely",
+  tiktok: "https://www.tiktok.com/@nutriologayanelyg",
+  email: "nutriyanelygm@gmail.com",
 
   ubicaciones: [
-    { lugar: "Ocotlán de Morelos, Oaxaca", modalidad: "Presencial" },
-    { lugar: "Santa Lucía del Camino, Oaxaca", modalidad: "Presencial" },
-    { lugar: "Cualquier parte del mundo", modalidad: "En línea" }
-  ]
+    {
+      lugar: "Ocotlán de Morelos, Oaxaca",
+      modalidad: "Presencial",
+      direccion:
+        "1ra Privada Venustiano Carranza 5, Ocotlán de Morelos Centro, 71510 Ocotlán de Morelos, Oax.",
+      // Coordenadas exactas de la ficha de Google Maps del negocio (resueltas
+      // desde mapsUrl) — el texto de la dirección a veces no geocodifica bien
+      // en calles privadas de poblaciones pequeñas, así que el mapa usa el
+      // punto exacto en vez de buscar por texto.
+      mapsQuery: "16.7908535,-96.6704334",
+      // Liga corta real de Google Maps (compartida por el cliente), para el
+      // botón "Cómo llegar" — más confiable que armar la ruta desde el texto.
+      mapsUrl: "https://maps.app.goo.gl/vaxQBqckd8MRzKK87",
+    },
+    {
+      lugar: "Santa Lucía del Camino, Oaxaca",
+      modalidad: "Presencial",
+      // TODO: dirección exacta pendiente del cliente. Mientras tanto el mapa
+      // solo se acerca a nivel ciudad, no marca un punto exacto.
+      mapsQuery: "Santa Lucía del Camino, Oaxaca",
+    },
+    { lugar: "Cualquier parte del mundo", modalidad: "En línea" },
+  ],
 };
 
 /** Construye el link de WhatsApp con el mensaje predeterminado ya codificado. */

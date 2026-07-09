@@ -1,0 +1,30 @@
+---
+/**
+ * Mapa de Google Maps embebido, sin API key (usa el endpoint público
+ * /maps?...&output=embed). `query` es texto libre: una dirección exacta o
+ * unas coordenadas centran el mapa en ese punto; un nombre de ciudad/colonia
+ * (para ubicaciones de las que aún no se tiene la dirección exacta) también
+ * se acerca al zoom fijo (z=17) — puede no encontrar un punto tan preciso
+ * hasta que se actualice el query con la dirección real.
+ */
+interface Props {
+  query: string;
+  titulo: string;
+  /** Poner en false cuando el contenedor padre ya recorta las esquinas (p. ej. una card con overflow-hidden). */
+  rounded?: boolean;
+  class?: string;
+}
+
+const { query, titulo, rounded = true, class: className } = Astro.props;
+const src = `https://maps.google.com/maps?q=${encodeURIComponent(query)}&t=&z=17&ie=UTF8&iwloc=&output=embed`;
+---
+
+<div class:list={["overflow-hidden", rounded && "rounded-2xl", className]}>
+  <iframe
+    src={src}
+    title={titulo}
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    class="h-full w-full border-0"
+  />
+</div>
