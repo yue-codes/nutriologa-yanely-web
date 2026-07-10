@@ -17,6 +17,16 @@
  * dimensiones vuelven a cuadrar exactas con el header, sin dejar huecos ni
  * verse chica. Los 420px se repiten en tres lugares a propósito (alto del
  * header, ancho de la imagen rotada); si cambias uno, cambia los demás igual.
+ *
+ * El centrado usa una sola propiedad `transform` explícita (arbitrary value)
+ * en vez de las utilidades sueltas -translate-x-1/2/-translate-y-1/2/rotate-90:
+ * Tailwind v4 traduce esas utilidades a las propiedades CSS independientes
+ * `translate`/`rotate`, que el navegador siempre compone en el orden fijo
+ * translate→rotate (sin importar el orden de las clases) — el orden opuesto
+ * al que este cálculo necesita (rotar primero, alrededor del centro de la
+ * imagen sin rotar, y trasladar después). Con las propiedades separadas la
+ * imagen queda descentrada verticalmente en un monto que depende del ancho
+ * de pantalla (100vw), dejando franjas oscuras arriba/abajo en móvil.
  */
 interface Props {
   eyebrow?: string;
@@ -54,7 +64,7 @@ const {
           class:list={[
             "absolute -z-20 object-cover",
             imagenFondoRotar
-              ? "top-1/2 left-1/2 h-[100vw] w-[420px] -translate-x-1/2 -translate-y-1/2 rotate-90"
+              ? "top-1/2 left-1/2 h-[100vw] w-[420px] [transform:translate(-50%,-50%)_rotate(90deg)]"
               : "inset-0 h-full w-full",
           ]}
         />
