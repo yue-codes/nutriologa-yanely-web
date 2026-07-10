@@ -24,30 +24,30 @@ const metodos = [
   {
     href: contacto.instagram,
     label: "Instagram",
+    nombre: "Instagram",
     Icono: InstagramIcon,
     badge: "bg-accent/10 text-accent",
-    acento: "border-accent hover:bg-accent/5",
   },
   {
     href: contacto.facebook,
     label: "Facebook",
+    nombre: "Facebook",
     Icono: FacebookIcon,
     badge: "bg-secondary/10 text-secondary",
-    acento: "border-secondary hover:bg-secondary/5",
   },
   {
     href: contacto.tiktok,
     label: "TikTok",
+    nombre: "TikTok",
     Icono: TikTokIcon,
     badge: "bg-ink/10 text-ink",
-    acento: "border-ink hover:bg-ink/5",
   },
   {
     href: `mailto:${contacto.email}`,
     label: contacto.email,
+    nombre: "Correo",
     Icono: MailIcon,
     badge: "bg-primary/10 text-primary",
-    acento: "border-primary hover:bg-primary/5",
   },
 ] as const;
 
@@ -89,28 +89,26 @@ const testimoniosDestacados = testimonios.slice(0, 2);
       </div>
     </div>
 
-    <div class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
+    <div class="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-8">
       {
-        metodos.map(({ href, label, Icono, badge, acento }) => (
+        metodos.map(({ href, label, nombre, Icono, badge }) => (
           <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            class:list={[
-              "ring-ink/5 flex items-center gap-4 rounded-2xl border-l-4 bg-white/70 p-5 shadow-sm ring-1 transition hover:-translate-y-0.5 hover:shadow-md",
-              acento,
-            ]}
+            aria-label={label}
+            class="group flex flex-col items-center gap-2"
           >
             <span
               class:list={[
-                "flex h-12 w-12 shrink-0 items-center justify-center rounded-full",
+                "ring-ink/5 flex h-16 w-16 items-center justify-center rounded-full shadow-sm ring-1 transition group-hover:-translate-y-0.5 group-hover:shadow-md",
                 badge,
               ]}
             >
-              <Icono class="h-6 w-6" />
+              <Icono class="h-7 w-7" />
             </span>
-            <span class="font-body text-ink font-semibold break-all">
-              {label}
+            <span class="font-body text-ink/70 text-xs font-semibold">
+              {nombre}
             </span>
           </a>
         ))

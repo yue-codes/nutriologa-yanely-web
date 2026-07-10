@@ -1,0 +1,133 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/ui/Button.astro";
+import InstagramIcon from "@icons/InstagramIcon.astro";
+import FacebookIcon from "@icons/FacebookIcon.astro";
+import TikTokIcon from "@icons/TikTokIcon.astro";
+import HojaIcon from "@icons/HojaIcon.astro";
+import MaizIcon from "@icons/MaizIcon.astro";
+import CerebroIcon from "@icons/CerebroIcon.astro";
+import CorazonIcon from "@icons/CorazonIcon.astro";
+import { contacto, linkWhatsApp } from "@data/contacto";
+
+// Reemplaza el Linktree externo (ver public/capturalinktr.ee.png) con una
+// página propia del sitio; los 3 botones replican los del Linktree actual,
+// cada uno con un mensaje de WhatsApp distinto para dar contexto a Yanely.
+const botones = [
+  {
+    href: linkWhatsApp(),
+    texto: "Agenda tu cita",
+    variant: "love",
+  },
+  {
+    href: linkWhatsApp("Quiero agendar una asesoría presencial o en línea"),
+    texto: "Asesoría presencial o en línea",
+    variant: "primary",
+  },
+] as const;
+
+const redes = [
+  {
+    href: contacto.instagram,
+    label: "Instagram",
+    Icono: InstagramIcon,
+    badge: "bg-accent/10 text-accent",
+  },
+  {
+    href: contacto.facebook,
+    label: "Facebook",
+    Icono: FacebookIcon,
+    badge: "bg-secondary/10 text-secondary",
+  },
+  {
+    href: contacto.tiktok,
+    label: "TikTok",
+    Icono: TikTokIcon,
+    badge: "bg-ink/10 text-ink",
+  },
+] as const;
+---
+
+<Layout
+  title="Enlaces | Nutrióloga Yanely García"
+  description="Agenda tu cita, conoce mis asesorías y sígueme en redes — todos mis enlaces en un solo lugar."
+  image="/nutri.webp"
+>
+  <section class="relative overflow-hidden py-16 sm:py-20">
+    <HojaIcon
+      class="text-primary pointer-events-none absolute -top-8 -left-8 -z-10 size-40 rotate-12 opacity-[0.07] md:size-52"
+    />
+    <MaizIcon
+      class="text-accent pointer-events-none absolute -top-10 -right-10 -z-10 size-40 -rotate-12 opacity-[0.07] md:size-52"
+    />
+    <CerebroIcon
+      class="text-secondary pointer-events-none absolute -bottom-8 -left-10 -z-10 size-40 -rotate-12 opacity-[0.07] md:size-52"
+    />
+    <CorazonIcon
+      class="text-love pointer-events-none absolute -right-8 -bottom-10 -z-10 size-40 rotate-12 opacity-[0.07] md:size-52"
+    />
+
+    <div class="mx-auto max-w-sm px-4 text-center">
+      <img
+        src="/nutri.webp"
+        alt="Yanely García, Nutrióloga"
+        width="112"
+        height="112"
+        class="ring-primary/20 mx-auto h-28 w-28 rounded-full object-cover ring-4"
+      />
+      <h1 class="font-heading text-ink mt-5 text-2xl font-semibold">
+        Yanely García
+      </h1>
+      <p class="font-body text-ink/50 text-sm font-semibold">
+        @nutriologayanely
+      </p>
+      <p class="font-body text-ink/70 mt-3 text-sm">
+        ¡Hola! Te acompaño en tu proceso de cambio o adopción de hábitos.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3">
+        {
+          botones.map(({ href, texto, variant }) => (
+            <Button
+              href={href}
+              variant={variant}
+              target="_blank"
+              class="w-full"
+            >
+              {texto}
+            </Button>
+          ))
+        }
+        <Button href="/servicios" variant="outline" class="w-full">
+          Ver mis servicios
+        </Button>
+      </div>
+
+      <div class="mt-8 flex justify-center gap-6">
+        {
+          redes.map(({ href, label, Icono, badge }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              class="group flex flex-col items-center gap-2"
+            >
+              <span
+                class:list={[
+                  "ring-ink/5 flex h-16 w-16 items-center justify-center rounded-full shadow-sm ring-1 transition group-hover:-translate-y-0.5 group-hover:shadow-md",
+                  badge,
+                ]}
+              >
+                <Icono class="h-7 w-7" />
+              </span>
+              <span class="font-body text-ink/70 text-xs font-semibold">
+                {label}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
