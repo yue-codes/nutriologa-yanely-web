@@ -1,7 +1,7 @@
 ---
 titulo: "Qué hacer cuando comes fuera de casa"
 resumen: "Comer en la calle o en una reunión no significa romper tu plan. Aquí algunas ideas prácticas."
-fecha: 2026-03-18
+fecha: 2026-07-18
 categoria: "Consejos"
 imagen: "/blog/comerafuera.jpg"
 imagenAlt: "Varias manos tomando rebanadas de una pizza compartida en una reunión"

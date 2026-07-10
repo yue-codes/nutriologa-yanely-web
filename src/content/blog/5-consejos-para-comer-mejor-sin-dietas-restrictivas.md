@@ -1,7 +1,7 @@
 ---
 titulo: "5 consejos para comer mejor sin dietas restrictivas"
 resumen: "Pequeños cambios de hábitos que puedes mantener en el tiempo, sin hojas de dieta imposibles de seguir."
-fecha: 2026-01-15
+fecha: 2026-07-15
 categoria: "Consejos"
 imagen: "/blog/5consejos.jpg"
 imagenAlt: "Mujer en la cocina junto a frutos secos, fruta deshidratada, plátanos y miel"

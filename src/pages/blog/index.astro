@@ -7,6 +7,19 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf(),
 );
+
+// Solo las categorías que de verdad tienen algún post, en un orden fijo
+// (no alfabético) para que la barra de filtros no reordene sola al agregar posts.
+const ordenCategorias = [
+  "Consejos",
+  "Salud",
+  "Hábitos",
+  "Motivación",
+  "Mi libro",
+];
+const categorias = ordenCategorias.filter((cat) =>
+  posts.some((post) => post.data.categoria === cat),
+);
 ---
 
 <Layout
@@ -22,8 +35,63 @@ const posts = (await getCollection("blog")).sort(
   />
 
   <section class="px-4 py-16">
-    <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
-      {posts.map((post) => <BlogCard entry={post} />)}
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          type="button"
+          data-filtro-categoria="todos"
+          class="bg-primary text-cream rounded-full border-2 border-primary px-5 py-2 text-sm font-semibold transition-colors"
+        >
+          Todos
+        </button>
+        {
+          categorias.map((cat) => (
+            <button
+              type="button"
+              data-filtro-categoria={cat}
+              class="border-primary text-primary hover:bg-primary hover:text-cream rounded-full border-2 px-5 py-2 text-sm font-semibold transition-colors"
+            >
+              {cat}
+            </button>
+          ))
+        }
+      </div>
+
+      <div id="grid-posts" class="mt-10 grid gap-6 md:grid-cols-3">
+        {
+          posts.map((post) => (
+            <div data-categoria={post.data.categoria}>
+              <BlogCard entry={post} />
+            </div>
+          ))
+        }
+      </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>(
+    "[data-filtro-categoria]",
+  );
+  const items = document.querySelectorAll<HTMLElement>(
+    "#grid-posts [data-categoria]",
+  );
+
+  function activar(pillActiva: HTMLButtonElement) {
+    pills.forEach((pill) => {
+      const esActiva = pill === pillActiva;
+      pill.classList.toggle("bg-primary", esActiva);
+      pill.classList.toggle("text-cream", esActiva);
+      pill.classList.toggle("text-primary", !esActiva);
+    });
+
+    const categoria = pillActiva.dataset.filtroCategoria;
+    items.forEach((item) => {
+      const coincide = categoria === "todos" || item.dataset.categoria === categoria;
+      item.classList.toggle("hidden", !coincide);
+    });
+  }
+
+  pills.forEach((pill) => pill.addEventListener("click", () => activar(pill)));
+</script>

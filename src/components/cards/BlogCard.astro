@@ -5,7 +5,7 @@ interface Props {
   entry: CollectionEntry<"blog">;
 }
 const { entry } = Astro.props;
-const { titulo, resumen, fecha, categoria, imagen, imagenAlt } = entry.data;
+const { titulo, fecha, categoria, imagen, imagenAlt } = entry.data;
 
 const fechaFormateada = fecha.toLocaleDateString("es-MX", {
   day: "numeric",
@@ -16,31 +16,31 @@ const fechaFormateada = fecha.toLocaleDateString("es-MX", {
 
 <a
   href={`/blog/${entry.id}`}
-  class="group ring-ink/5 flex flex-col overflow-hidden rounded-3xl bg-white/70 shadow-sm ring-1 transition-shadow hover:shadow-md"
+  class="group relative isolate flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-3xl"
 >
   <img
     src={imagen}
     alt={imagenAlt}
     width="800"
-    height="500"
+    height="1000"
     loading="lazy"
-    class="h-48 w-full object-cover"
+    class="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
   />
-  <div class="flex flex-1 flex-col p-6">
+  <div
+    class="from-ink/90 via-ink/30 absolute inset-0 -z-10 bg-gradient-to-t to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="p-6">
     <span
-      class="font-body text-accent text-xs font-bold tracking-wide uppercase"
-      >{categoria}</span
+      class="font-body text-secondary text-xs font-bold tracking-wide uppercase"
     >
-    <h3
-      class="font-heading text-ink group-hover:text-primary mt-2 text-lg font-semibold"
-    >
+      {categoria}
+    </span>
+    <h3 class="font-heading text-cream mt-2 text-lg font-semibold">
       {titulo}
     </h3>
-    <p class="font-body text-ink/80 mt-2 flex-1 text-sm">{resumen}</p>
-    <time
-      datetime={fecha.toISOString()}
-      class="font-body text-ink/60 mt-4 text-xs"
-    >
+    <time datetime={fecha.toISOString()} class="font-body text-cream/70 mt-2 block text-xs">
       {fechaFormateada}
     </time>
   </div>

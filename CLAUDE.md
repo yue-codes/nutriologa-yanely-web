@@ -66,3 +66,9 @@ File-based routing in `src/pages/`: `index.astro`, `sobre-mi.astro`, `servicios.
 `TrustMetrics.astro` also lives in `home/` but isn't composed from `index.astro` — `Hero.astro` imports and renders it inline as the closing block of the hero's own `<section>`, so the trust numbers read as part of the hero's first impression rather than a separate section. Its "Años de experiencia" and "Pacientes atendidos" figures are still placeholders (`final={5}`/`final={500}` in the file) pending real numbers from the client — same rule as the other placeholders, don't invent a "real-looking" replacement.
 
 Images are referenced as plain `<img>` tags (not `astro:assets`/`<Image>`) — the real photos live in `public/` rather than `src/assets/`, and blog placeholder images are external URLs, so Astro's build-time optimization doesn't apply cleanly to either; this was a deliberate simplification, not an oversight.
+
+### SEO
+
+`astro.config.mjs`'s `site` value is the single source of truth for every absolute URL the site emits — it feeds the sitemap (`@astrojs/sitemap`, generates `sitemap-index.xml`/`sitemap-0.xml` at build with every static route, including each blog post), `src/pages/robots.txt.ts` (a route rather than a static file in `public/`, specifically so its `Sitemap:` line is built from `site` and can't drift out of sync with it), and `Layout.astro`'s `<link rel="canonical">` (built from `Astro.url`, which Astro resolves against `site` for static output). Updating the temporary Netlify domain in that one place keeps all three correct.
+
+`Layout.astro` also drives the Open Graph/Twitter card preview image (`og:image`/`twitter:image`) from its `image` prop, defaulting to `/nutri.webp` when a page doesn't pass one. Every page that calls `<Layout>` should pass its own representative photo — blog posts pass `post.data.imagen` — otherwise sharing that page's link silently shows the generic homepage photo instead.

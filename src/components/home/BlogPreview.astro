@@ -1,17 +1,86 @@
 ---
 import Section from "@components/ui/Section.astro";
 import Button from "@components/ui/Button.astro";
-import BlogCard from "@components/cards/BlogCard.astro";
 import { getCollection } from "astro:content";
 
-const ultimosPosts = (await getCollection("blog"))
+const [postA, postB, postC] = (await getCollection("blog"))
   .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
   .slice(0, 3);
 ---
 
 <Section tinted eyebrow="Para seguir aprendiendo" titulo="Del blog" centrado>
-  <div class="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
-    {ultimosPosts.map((post) => <BlogCard entry={post} />)}
+  {/* Mosaico tipo tablero: cada post ocupa una celda de texto y una de foto,
+      colocadas en esquinas opuestas para que el patrón alterne texto/foto
+      tanto por fila como por columna. */}
+  <div
+    class="mx-auto mt-10 grid max-w-6xl grid-cols-1 overflow-hidden rounded-3xl sm:grid-cols-3"
+  >
+    <a
+      href={`/blog/${postA.id}`}
+      class="bg-accent text-cream flex aspect-square flex-col justify-center gap-3 p-8"
+    >
+      <span class="font-body text-cream/80 text-xs font-bold tracking-wide uppercase"
+        >{postA.data.categoria}</span
+      >
+      <h3 class="font-heading text-2xl font-semibold">{postA.data.titulo}</h3>
+      <p class="font-body text-cream/85 text-sm">{postA.data.resumen}</p>
+      <span
+        class="font-body bg-cream text-ink mt-2 inline-block w-fit rounded-full px-5 py-2 text-sm font-semibold"
+      >
+        Leer más
+      </span>
+    </a>
+    <a href={`/blog/${postA.id}`} class="aspect-square">
+      <img
+        src={postA.data.imagen}
+        alt={postA.data.imagenAlt}
+        class="h-full w-full object-cover"
+      />
+    </a>
+    <a
+      href={`/blog/${postB.id}`}
+      class="bg-cream text-ink flex aspect-square flex-col justify-center gap-3 p-8"
+    >
+      <span class="font-body text-accent text-xs font-bold tracking-wide uppercase"
+        >{postB.data.categoria}</span
+      >
+      <h3 class="font-heading text-2xl font-semibold">{postB.data.titulo}</h3>
+      <p class="font-body text-ink/80 text-sm">{postB.data.resumen}</p>
+      <span
+        class="font-body bg-accent text-cream mt-2 inline-block w-fit rounded-full px-5 py-2 text-sm font-semibold"
+      >
+        Leer más
+      </span>
+    </a>
+    <a href={`/blog/${postC.id}`} class="aspect-square">
+      <img
+        src={postC.data.imagen}
+        alt={postC.data.imagenAlt}
+        class="h-full w-full object-cover"
+      />
+    </a>
+    <a
+      href={`/blog/${postC.id}`}
+      class="bg-cream text-ink flex aspect-square flex-col justify-center gap-3 p-8"
+    >
+      <span class="font-body text-accent text-xs font-bold tracking-wide uppercase"
+        >{postC.data.categoria}</span
+      >
+      <h3 class="font-heading text-2xl font-semibold">{postC.data.titulo}</h3>
+      <p class="font-body text-ink/80 text-sm">{postC.data.resumen}</p>
+      <span
+        class="font-body bg-accent text-cream mt-2 inline-block w-fit rounded-full px-5 py-2 text-sm font-semibold"
+      >
+        Leer más
+      </span>
+    </a>
+    <a href={`/blog/${postB.id}`} class="aspect-square">
+      <img
+        src={postB.data.imagen}
+        alt={postB.data.imagenAlt}
+        class="h-full w-full object-cover"
+      />
+    </a>
   </div>
   <div class="mt-10 text-center">
     <Button href="/blog" variant="outline">Ver todo el blog</Button>
