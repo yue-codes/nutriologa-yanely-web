@@ -27,17 +27,15 @@ const fechaFormateada = post.data.fecha.toLocaleDateString("es-MX", {
   title={`${post.data.titulo} | Blog Nutrióloga Yanely García`}
   description={post.data.resumen}
 >
-  <PageHeader eyebrow={post.data.categoria} titulo={post.data.titulo} />
+  <PageHeader
+    eyebrow={post.data.categoria}
+    titulo={post.data.titulo}
+    imagenFondo={post.data.imagen}
+    imagenFondoAlt={post.data.imagenAlt}
+  />
 
   <article class="mx-auto max-w-3xl px-4 py-16">
-    <img
-      src={post.data.imagen}
-      alt={post.data.imagenAlt}
-      width="800"
-      height="500"
-      class="w-full rounded-3xl object-cover"
-    />
-    <p class="font-body text-ink/60 mt-4 text-sm">{fechaFormateada}</p>
+    <p class="font-body text-ink/60 text-sm">{fechaFormateada}</p>
     <div class="blog-content font-body text-ink/90 mt-6">
       <Content />
     </div>

@@ -60,6 +60,7 @@ body {
 }
 .blog-content :where(h3) {
   font-size: 1.25rem;
+  color: var(--color-title);
 }
 .blog-content :where(p) {
   margin-bottom: 1rem;
@@ -87,4 +88,13 @@ body {
 .blog-content :where(a) {
   color: var(--color-primary);
   text-decoration: underline;
+}
+.blog-content :where(img) {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 0.75rem;
+  max-width: 100%;
+  width: 280px;
+  height: auto;
+  box-shadow: 0 4px 16px rgba(59, 42, 32, 0.15);
 }
