@@ -14,8 +14,9 @@ desarrollador cada vez.
 
 ### Diseño hecho a partir de tu marca real
 
-La paleta de colores no es genérica: se tomó directamente de los 4 íconos de tu logo (cerebro,
-mazorca, hoja, corazón) para que el sitio se sienta tuyo desde el primer vistazo. La tipografía
+La paleta de colores no es genérica: son los colores oficiales Pantone de tu logo (cerebro,
+mazorca, hoja, corazón) que nos compartiste, para que el sitio se sienta tuyo desde el primer
+vistazo. La tipografía
 combina una fuente cálida y editorial (Fraunces) para títulos, una fuente clara y amigable
 (Nunito Sans) para el texto, y una manuscrita (Caveat) para tus frases — como eco del trazo
 cursivo de tu firma en el logo.
@@ -52,7 +53,6 @@ donde la mayoría de tus pacientes potenciales te van a encontrar.
 Este sitio se construyó con la información real que nos compartiste, pero hay algunas piezas
 temporales que conviene reemplazar antes de publicarlo:
 
-- [ ] Logo en alta calidad (hoy hay una versión recreada con los mismos 4 íconos, como referencia)
 - [ ] Número de WhatsApp real para agendar citas
 - [ ] Correo de contacto real
 - [ ] Testimonios reales de pacientes (los actuales son genéricos, de ejemplo)

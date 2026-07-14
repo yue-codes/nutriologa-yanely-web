@@ -1,41 +1,10 @@
 ---
-/**
- * Logo de marca PROVISIONAL: reproduce la composición del logo real
- * (4 íconos + nombre en cursiva + "Nutrióloga") con los íconos propios de
- * src/icons/. Reemplázalo por <img> con el logo en alta calidad cuando
- * Yanely lo entregue — el resto de los componentes no necesita cambiar,
- * solo este archivo.
- */
-import CerebroIcon from "@icons/CerebroIcon.astro";
-import MaizIcon from "@icons/MaizIcon.astro";
-import HojaIcon from "@icons/HojaIcon.astro";
-import CorazonIcon from "@icons/CorazonIcon.astro";
-
 interface Props {
   class?: string;
-  /** Activa en fondos oscuros (ej. el Footer) para que el subtítulo sea legible. */
-  dark?: boolean;
 }
-const { class: className, dark = false } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<a
-  href="/"
-  class:list={["inline-flex flex-col items-center leading-none", className]}
->
-  <span class="flex items-center gap-1">
-    <CerebroIcon class="text-secondary h-4 w-4" />
-    <MaizIcon class="text-accent h-4 w-4" />
-    <HojaIcon class="text-primary h-4 w-4" />
-    <CorazonIcon class="text-love h-4 w-4" />
-  </span>
-  <span class="font-accent text-love text-2xl">Yanely García</span>
-  <span
-    class:list={[
-      "font-body -mt-1 text-[0.6rem] font-bold tracking-widest uppercase",
-      dark ? "text-cream/70" : "text-ink/60",
-    ]}
-  >
-    Nutrióloga
-  </span>
+<a href="/" class:list={["inline-flex items-center", className]}>
+  <img src="/logo.svg" alt="Yanely García, Nutrióloga" class="h-12 w-auto" />
 </a>

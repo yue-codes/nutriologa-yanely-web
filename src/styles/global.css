@@ -22,19 +22,21 @@
   --font-body: "Nunito Sans", sans-serif;
   --font-accent: "Caveat", cursive;
 
-  /* Paleta de marca (inspirada en el logo: cerebro amarillo, mazorca
-     café, hoja verde, corazón rojo/rosa) */
-  --color-primary: #5b8c3e; /* verde hoja — botones y acentos principales */
-  --color-primary-dark: #43692c; /* hover/estados activos del primario */
-  --color-secondary: #e8a93b; /* amarillo mostaza — fondos cálidos y destacados */
-  --color-accent: #b5602f; /* terracota/café — detalles y bordes */
-  --color-love: #e0476b; /* rojo-rosa — CTA principal y frases motivacionales */
+  /* Paleta de marca oficial (Pantone RGB entregada por la clienta,
+     public/RGBPantone.png — coincide con los colores del logo: cerebro
+     naranja, mazorca café, hoja verde, corazón rojo/rosa) */
+  --color-primary: #1d7d01; /* verde hoja — botones y acentos principales */
+  --color-primary-dark: #155b01; /* hover/estados activos del primario */
+  --color-secondary: #f29f05; /* naranja cerebro — fondos cálidos y destacados */
+  --color-accent: #8c5b4a; /* café mazorca — detalles y bordes */
+  --color-love: #d83755; /* rojo-rosa corazón — CTA principal y frases motivacionales */
   --color-cream: #fbf3e7; /* fondo cálido del sitio */
   --color-ink: #3b2a20; /* texto principal (café oscuro, no negro puro) */
 
-  /* Separado de --color-primary a propósito: este es el verde de texto
-     (títulos de sección), para poder ajustarlo sin afectar botones/íconos. */
-  --color-title: #5b8c3e;
+  /* Separado de --color-primary a propósito, para poder ajustarlo sin
+     afectar botones/íconos. Es el granate del wordmark "Yanely García"
+     en el logo oficial, usado para títulos de sección. */
+  --color-title: #8c1133;
 }
 
 body {

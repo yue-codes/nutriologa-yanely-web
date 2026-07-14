@@ -82,9 +82,11 @@ leen de aquí.
 
 ## Cambiar el logo o las fotos
 
-- **Logo**: cuando tengas el logo en alta calidad, reemplaza el contenido de
-  `src/components/layout/Logo.astro` por una etiqueta `<img>` que apunte al archivo (colócalo en
-  `public/`).
+- **Logo**: es el archivo `public/logo.svg`, referenciado desde `src/components/layout/Logo.astro`.
+  Para actualizarlo, sustituye ese archivo manteniendo el mismo nombre (o cambia la ruta en
+  `Logo.astro` si usas uno distinto).
+- **Favicon**: es el archivo `public/favicon.png`, referenciado desde `src/layouts/Layout.astro`.
+  Sustitúyelo manteniendo el mismo nombre para actualizarlo.
 - **Fotos**: sustituye los archivos en `public/` (`nutri.webp`, `nutri2.jpg`, `nutri3.jpg`) por
   las versiones finales manteniendo el mismo nombre, o actualiza la ruta en la página
   correspondiente si usas un nombre distinto.
@@ -94,3 +96,6 @@ leen de aquí.
 Archivo: `src/styles/global.css`, dentro del bloque `@theme`. Cambiar un valor de color (por
 ejemplo `--color-primary`) actualiza ese color en todo el sitio automáticamente — no es
 necesario tocar ningún componente.
+
+Los valores actuales son la paleta oficial Pantone que Yanely compartió (ver
+`public/RGBPantone.png` como referencia), la misma que usan los íconos del logo.
