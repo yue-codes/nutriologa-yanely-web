@@ -17,6 +17,8 @@ Imagina tu plato dividido en tres partes:
 - **Un cuarto de proteína** — animal o vegetal, según tu plan.
 - **Un cuarto de cereal o tubérculo** — arroz, tortilla, papa, lo que acostumbres.
 
+![Ilustración de una nutrióloga sosteniendo verduras, fruta y elote](/avatarnutri/nutry6.png)
+
 ## ¿Y los antojos?
 
 Este método no es una camisa de fuerza. Un postre, un pan o una salsa extra no rompen el equilibrio si la base del plato ya está cubierta — lo importante es que sea la excepción, no la regla.

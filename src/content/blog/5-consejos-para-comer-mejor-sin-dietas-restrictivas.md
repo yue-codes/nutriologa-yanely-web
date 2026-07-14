@@ -17,6 +17,8 @@ Estos son los 5 consejos que más repito en consulta:
 4. **No elimines, ajusta.** Casi todo se puede acomodar dentro de un plan flexible.
 5. **Busca acompañamiento profesional** que te escuche a ti, no que te imponga una fórmula genérica.
 
+![Ilustración de una nutrióloga con delantal en la cocina](/avatarnutri/nutry3.png)
+
 Ninguno de estos cambios funciona solo: la clave está en aplicarlos poco a poco y con paciencia.
 
 > _Este es un post de ejemplo para mostrar el diseño del blog — Yanely puede reemplazar este contenido por sus artículos reales._

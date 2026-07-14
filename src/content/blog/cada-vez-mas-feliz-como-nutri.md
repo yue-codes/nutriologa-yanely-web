@@ -13,6 +13,8 @@ Mi trabajo no se enfoca en bajar de peso, sino en lograr una transición que pue
 
 > Amor, cariño y respeto a la nutrición.
 
+![Ilustración de una nutrióloga sonriendo y saludando con la mano](/avatarnutri/nuty7.png)
+
 Sé que todavía falta camino por recorrer, pero cada día me siento más feliz de acompañar este proceso junto a mis pacientes.
 
 > _Este es un post de ejemplo para mostrar el diseño del blog — Yanely puede reemplazar este contenido por sus artículos reales._

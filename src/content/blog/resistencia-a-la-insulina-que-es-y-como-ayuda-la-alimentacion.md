@@ -3,8 +3,8 @@ titulo: "Resistencia a la insulina: qué es y cómo ayuda la alimentación"
 resumen: "Una explicación sencilla de qué pasa en tu cuerpo y por qué la alimentación es una de las herramientas más importantes para manejarla."
 fecha: 2026-02-03
 categoria: "Salud"
-imagen: "/blog/recistenciainsulina.jpg"
-imagenAlt: "Tenedor con un bocado de coliflor asada, arúgula, proteína y col morada"
+imagen: "/nutriexplicando.jpg"
+imagenAlt: "Yanely García explicando a un paciente los criterios diagnósticos de glucosa y hemoglobina glicosilada"
 ---
 
 ## ¿Qué es la resistencia a la insulina?

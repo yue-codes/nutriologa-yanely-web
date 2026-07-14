@@ -11,6 +11,8 @@ Durante años nos enseñaron a medir el éxito de un plan de alimentación solo 
 
 Cuando el enfoque cambia de "bajar de peso" a "ganar salud", los hábitos se vuelven más fáciles de mantener, porque ya no dependen de un número, sino de cómo te sientes.
 
+![Ilustración de una nutrióloga levantando pesas con energía](/avatarnutri/nutry2.png)
+
 Ese es el cambio que más me gusta acompañar en consulta. Si quieres platicar sobre tu proceso, puedes [agendar una consulta](/contacto).
 
 > _Este es un post de ejemplo para mostrar el diseño del blog — Yanely puede reemplazar este contenido por sus artículos reales._
