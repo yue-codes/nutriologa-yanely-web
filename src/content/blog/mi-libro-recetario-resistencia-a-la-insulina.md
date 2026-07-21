@@ -3,7 +3,7 @@ titulo: "Recetario - Resistencia a la insulina"
 resumen: "Recetario práctico de ideas para mantener tu dieta lo más equilibrada posible."
 fecha: 2026-07-19
 categoria: "Mi libro"
-imagen: "/libros/recetario-resistencia-a-la-insulina.png"
+imagen: "/libros/recetario-resistencia-a-la-insulina.jpg"
 imagenAlt: "Portada del ebook Recetario - Resistencia a la insulina de Yanely García"
 ctaTexto: "Cómpralo por WhatsApp"
 ctaWhatsappMensaje: 'Hola Yanely, me interesa el ebook "Recetario - Resistencia a la insulina" ($189.00)'
@@ -13,6 +13,6 @@ ctaWhatsappMensaje: 'Hola Yanely, me interesa el ebook "Recetario - Resistencia 
 
 Recetas pensadas para el día a día de quienes viven con resistencia a la insulina.
 
-### Precio
+## Precio
 
 $189.00

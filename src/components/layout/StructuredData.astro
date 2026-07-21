@@ -1,0 +1,72 @@
+---
+/**
+ * JSON-LD (schema.org) para SEO local: le dice a Google que este es un
+ * negocio de salud con una profesional certificada, ubicación física y
+ * modalidad en línea. Se monta una sola vez desde Layout.astro, en cada
+ * página, como recomienda Google para señales de NAP consistentes.
+ */
+import { contacto } from "@data/contacto";
+
+const ubicacionPresencial = contacto.ubicaciones.find(
+  (u) => u.modalidad === "Presencial",
+);
+
+const [lat, lng] = (ubicacionPresencial?.mapsQuery ?? "")
+  .split(",")
+  .map(Number);
+
+const siteUrl = Astro.site
+  ? new URL(Astro.site).toString()
+  : Astro.url.toString();
+const imagenUrl = new URL("/nutri.webp", Astro.site).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: "Nutrióloga Yanely García",
+  image: imagenUrl,
+  url: siteUrl,
+  telephone: `+${contacto.whatsapp}`,
+  email: contacto.email,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress:
+      "1ra Privada Venustiano Carranza 5, Ocotlán de Morelos Centro",
+    addressLocality: "Ocotlán de Morelos",
+    addressRegion: "Oaxaca",
+    postalCode: "71510",
+    addressCountry: "MX",
+  },
+  ...(Number.isFinite(lat) && Number.isFinite(lng)
+    ? {
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: lat,
+          longitude: lng,
+        },
+      }
+    : {}),
+  hasMap: ubicacionPresencial?.mapsUrl,
+  areaServed: [
+    { "@type": "City", name: "Ocotlán de Morelos" },
+    { "@type": "AdministrativeArea", name: "Oaxaca" },
+    { "@type": "Place", name: "En línea, para cualquier parte del mundo" },
+  ],
+  sameAs: [contacto.instagram, contacto.facebook, contacto.tiktok],
+  employee: {
+    "@type": "Person",
+    name: "Yanely García",
+    jobTitle: "Nutrióloga",
+    description:
+      "Licenciada en Nutrición, Céd. Profesional 11856808, egresada de la Universidad Regional del Sureste.",
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Cédula profesional",
+      identifier: "11856808",
+    },
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

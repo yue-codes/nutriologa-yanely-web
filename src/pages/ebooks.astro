@@ -18,6 +18,7 @@ import { linkWhatsApp } from "@data/contacto";
   />
 
   <section class="px-4 py-16">
+    <h2 class="sr-only">Catálogo de ebooks</h2>
     <div class="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {libros.map((libro) => <EbookCard libro={libro} />)}
     </div>

@@ -37,10 +37,13 @@ const fechaFormateada = fecha.toLocaleDateString("es-MX", {
     >
       {categoria}
     </span>
-    <h3 class="font-heading text-cream mt-2 text-lg font-semibold">
+    <h2 class="font-heading text-cream mt-2 text-lg font-semibold">
       {titulo}
-    </h3>
-    <time datetime={fecha.toISOString()} class="font-body text-cream/70 mt-2 block text-xs">
+    </h2>
+    <time
+      datetime={fecha.toISOString()}
+      class="font-body text-cream/70 mt-2 block text-xs"
+    >
       {fechaFormateada}
     </time>
   </div>
