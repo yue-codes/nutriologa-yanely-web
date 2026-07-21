@@ -9,6 +9,7 @@ import WhatsAppIcon from "@icons/WhatsAppIcon.astro";
 import MailIcon from "@icons/MailIcon.astro";
 import InstagramIcon from "@icons/InstagramIcon.astro";
 import FacebookIcon from "@icons/FacebookIcon.astro";
+import GoogleIcon from "@icons/GoogleIcon.astro";
 import TikTokIcon from "@icons/TikTokIcon.astro";
 import MapPinIcon from "@icons/MapPinIcon.astro";
 import HojaIcon from "@icons/HojaIcon.astro";
@@ -129,14 +130,39 @@ const testimoniosDestacados = testimonios.slice(0, 2);
                 “{t.comentario}”
               </blockquote>
               <figcaption class="font-heading text-ink mt-4 flex items-center gap-3 text-sm font-semibold">
-                <img
-                  src={t.avatar}
-                  alt={`Foto de ${t.nombre}`}
-                  width="40"
-                  height="40"
-                  loading="lazy"
-                  class="h-10 w-10 rounded-full object-cover"
-                />
+                <span class="relative h-10 w-10 flex-shrink-0">
+                  {t.avatar ? (
+                    <img
+                      src={t.avatar}
+                      alt={`Foto de ${t.nombre}`}
+                      width="40"
+                      height="40"
+                      loading="lazy"
+                      class="h-10 w-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span
+                      class="bg-secondary/15 text-secondary font-heading flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold"
+                      aria-hidden="true"
+                    >
+                      {t.nombre.charAt(0).toUpperCase()}
+                    </span>
+                  )}
+                  <span
+                    class="ring-ink/5 absolute -right-1 -bottom-1 flex h-4 w-4 items-center justify-center rounded-full bg-white ring-1"
+                    title={
+                      t.fuente === "google"
+                        ? "Reseña de Google"
+                        : "Reseña de Facebook"
+                    }
+                  >
+                    {t.fuente === "google" ? (
+                      <GoogleIcon class="size-2.5" />
+                    ) : (
+                      <FacebookIcon class="text-secondary size-2.5" />
+                    )}
+                  </span>
+                </span>
                 {t.nombre}
               </figcaption>
             </figure>
@@ -160,7 +186,12 @@ const testimoniosDestacados = testimonios.slice(0, 2);
       class="text-love pointer-events-none absolute -right-10 -bottom-10 -z-10 size-40 rotate-12 opacity-[0.07] md:size-52"
     />
 
-    <div class="mx-auto mt-10 grid max-w-4xl gap-8 md:grid-cols-2">
+    <div
+      class:list={[
+        "mx-auto mt-10 grid gap-8",
+        presenciales.length === 1 ? "max-w-md" : "max-w-4xl md:grid-cols-2",
+      ]}
+    >
       {
         presenciales.map((u) => (
           <article class="ring-ink/5 flex flex-col overflow-hidden rounded-3xl bg-white/70 shadow-sm ring-1">

@@ -26,13 +26,6 @@ export const contacto = {
       // botón "Cómo llegar" — más confiable que armar la ruta desde el texto.
       mapsUrl: "https://maps.app.goo.gl/vaxQBqckd8MRzKK87",
     },
-    {
-      lugar: "Santa Lucía del Camino, Oaxaca",
-      modalidad: "Presencial",
-      // TODO: dirección exacta pendiente del cliente. Mientras tanto el mapa
-      // solo se acerca a nivel ciudad, no marca un punto exacto.
-      mapsQuery: "Santa Lucía del Camino, Oaxaca",
-    },
     { lugar: "Cualquier parte del mundo", modalidad: "En línea" },
   ],
 };

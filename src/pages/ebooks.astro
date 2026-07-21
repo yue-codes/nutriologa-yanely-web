@@ -1,0 +1,30 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageHeader from "@components/ui/PageHeader.astro";
+import EbookCard from "@components/cards/EbookCard.astro";
+import Button from "@components/ui/Button.astro";
+import { libros } from "@data/libros";
+import { linkWhatsApp } from "@data/contacto";
+---
+
+<Layout
+  title="Ebooks | Nutrióloga Yanely García"
+  description="Guías y recetarios descargables de Yanely García: alimentación fitness, resistencia a la insulina y más."
+>
+  <PageHeader
+    eyebrow="Aprende a tu ritmo"
+    titulo="Mis Ebooks"
+    descripcion="Guías y recetarios prácticos que puedes descargar y llevar contigo. Cada uno se compra directo por WhatsApp."
+  />
+
+  <section class="px-4 py-16">
+    <div class="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {libros.map((libro) => <EbookCard libro={libro} />)}
+    </div>
+    <div class="mt-12 text-center">
+      <Button href={linkWhatsApp()} variant="love" target="_blank"
+        >¿Tienes dudas? Escríbeme por WhatsApp</Button
+      >
+    </div>
+  </section>
+</Layout>

@@ -100,3 +100,13 @@ body {
   height: auto;
   box-shadow: 0 4px 16px rgba(59, 42, 32, 0.15);
 }
+
+/* Oculta la barra de scroll en tiras horizontales con scroll-snap (ej. el
+   carrusel de ebooks en Inicio) sin bloquear el scroll táctil ni de mouse. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

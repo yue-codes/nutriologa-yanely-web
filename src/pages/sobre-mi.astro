@@ -2,6 +2,8 @@
 import Layout from "@layouts/Layout.astro";
 import PageHeader from "@components/ui/PageHeader.astro";
 import QuoteBlock from "@components/ui/QuoteBlock.astro";
+import HojaIcon from "@icons/HojaIcon.astro";
+import CorazonIcon from "@icons/CorazonIcon.astro";
 ---
 
 <Layout
@@ -15,7 +17,11 @@ import QuoteBlock from "@components/ui/QuoteBlock.astro";
     imagenFondoAlt="Yanely García chocando la palma con una paciente, sonriendo"
   />
 
-  <section class="px-4 py-16">
+  <section class="relative overflow-hidden px-4 py-16">
+    <HojaIcon
+      class="text-primary pointer-events-none absolute -top-8 -right-8 -z-10 size-40 rotate-12 opacity-[0.07] md:size-52"
+    />
+
     <div class="mx-auto grid max-w-5xl gap-10 md:grid-cols-2 md:items-center">
       <img
         src="/nutri2.jpg"
@@ -32,9 +38,40 @@ import QuoteBlock from "@components/ui/QuoteBlock.astro";
           Nutrióloga · Céd. Profesional 11856808
         </p>
         <p class="font-body text-ink/80 mt-4">
-          Acompaño procesos de cambio de hábitos y alimentación tomando en
-          cuenta quién eres, tu día a día y tu situación particular — no solo
-          una hoja de dieta genérica.
+          ¡Hola! Soy Yanely García Méndez, licenciada en nutrición, egresada de
+          la Universidad Regional del Sureste. Mi gusto y pasión por la
+          nutrición surge de temas personales que me llevaron a lo largo de
+          todos estos años a tener un tacto más humanitario y compasivo; y así
+          volverme experta en temas relacionados con el peso, cambios físicos,
+          la conducta alimentaria así como diversas patologías.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="relative mx-auto mt-16 grid max-w-5xl gap-10 md:grid-cols-2 md:items-center"
+    >
+      <CorazonIcon
+        class="text-love pointer-events-none absolute -bottom-10 -left-10 -z-10 size-40 -rotate-12 opacity-[0.07] md:size-52"
+      />
+      <img
+        src="/nutriexplicando.jpg"
+        alt="Yanely García explicando a un paciente los criterios diagnósticos de glucosa y hemoglobina glicosilada"
+        width="600"
+        height="450"
+        class="aspect-[4/3] w-full rounded-3xl object-cover md:order-2"
+      />
+      <div class="font-body text-ink/80 space-y-4 md:order-1">
+        <p>
+          Por lo que durante estos años he cursado diversos diplomados y
+          certificaciones que me brindan las herramientas necesarias para
+          brindarte una atención clínica de la calidad que merece tu salud.
+        </p>
+        <p>
+          Mi objetivo como tu nutrióloga es que cultives hábitos de alimentación
+          y prácticas de autocuidado de forma amigable, consciente y realista.
+          Me apasiona ser testigo que la gente disfruta sin restricciones
+          absurdas, encontrando el balance.
         </p>
       </div>
     </div>
@@ -50,51 +87,6 @@ import QuoteBlock from "@components/ui/QuoteBlock.astro";
       <QuoteBlock class="mt-4"
         >Amor, cariño y respeto a la nutrición.</QuoteBlock
       >
-
-      <div class="font-body text-ink/80 mt-8 space-y-4 text-left">
-        <p>
-          Durante mucho tiempo, el área de nutrición se enfocó en dar una dieta
-          restrictiva: una hoja, sin tomar en cuenta los hábitos ni el cuidado
-          real de la persona. Hoy la nutrición evolucionó — un buen
-          acompañamiento toma en cuenta la situación socioeconómica de cada
-          persona, sus hábitos y su contexto, para que el plan se adapte a ti y
-          no tú al plan. Así siempre debió haber sido.
-        </p>
-        <p>
-          Hoy en día muchos profesionales se enfocan en medidas específicas y en
-          una personalización real. Mi trabajo no se enfoca en que pierdas peso,
-          sino en lograr una buena transición hacia un estilo de vida que puedas
-          mantener.
-        </p>
-        <p>
-          Sé que todavía me falta un largo camino por recorrer, y cada día me
-          siento más feliz de acompañar este proceso junto a mis pacientes.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="px-4 py-16">
-    <div class="mx-auto grid max-w-5xl gap-10 md:grid-cols-2 md:items-center">
-      <div class="md:order-2">
-        <img
-          src="/nutriexplicando.jpg"
-          alt="Yanely García explicando a un paciente los criterios diagnósticos de glucosa y hemoglobina glicosilada"
-          width="600"
-          height="450"
-          class="aspect-[4/3] w-full rounded-3xl object-cover"
-        />
-      </div>
-      <div class="md:order-1">
-        <h2 class="font-heading text-ink text-2xl font-semibold">
-          Explicaciones claras, no solo un número
-        </h2>
-        <p class="font-body text-ink/80 mt-4">
-          Cada consulta incluye tiempo para entender tus resultados: qué
-          significan, qué rango es saludable para ti y qué puedes hacer con
-          esa información — no solo un diagnóstico entregado sin contexto.
-        </p>
-      </div>
     </div>
   </section>
 </Layout>

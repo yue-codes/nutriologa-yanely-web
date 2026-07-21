@@ -74,7 +74,7 @@ export default function TestimoniosCarousel({ total, children }: Props) {
       </button>
 
       <div
-        class="overflow-hidden"
+        class="overflow-hidden pt-3 -mt-3"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
